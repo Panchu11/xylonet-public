@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://arc.network"><img src="https://img.shields.io/badge/Arc_Network-Testnet-6C4CF1?style=flat-square&logo=data:image/svg+xml;base64,&logoColor=white" alt="Arc Network" /></a>
+  <a href="https://arc.network"><img src="https://img.shields.io/badge/Arc_Network-Mainnet_+_Testnet-6C4CF1?style=flat-square&logo=data:image/svg+xml;base64,&logoColor=white" alt="Arc Network" /></a>
   <img src="https://img.shields.io/badge/Solidity-0.8.30-363636?style=flat-square&logo=solidity&logoColor=white" alt="Solidity" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js" />
@@ -41,9 +41,9 @@
 | **PayX** | USDC tipping protocol for X/Twitter — escrow + claim, no wallet needed for recipients |
 | **XyloFacilitator** | HTTP 402 payment infrastructure for AI agents using EIP-3009 gasless settlements |
 
-All five protocols are live on Arc Testnet, fully indexed in real time, and fronted by a production Next.js application. An autonomous AI agent demo showcases the XyloFacilitator flow end-to-end: an agent reasons with OpenAI, hits a paywalled API, signs an EIP-3009 authorization, and settles in USDC on Arc in under one second.
+All five protocols are live on Arc Mainnet and Testnet, fully indexed in real time, and fronted by a production Next.js application. An autonomous AI agent demo showcases the XyloFacilitator flow end-to-end: an agent reasons with OpenAI, hits a paywalled API, signs an EIP-3009 authorization, and settles in USDC on Arc in under one second.
 
-> **Status:** Every product is deployed and functional on Arc Testnet (Chain ID: `5042002`). The protocol has processed **700,000+ swaps, $2.7M in vault deposits, and $106K in social tips** — all testnet volume that demonstrates real throughput and contract reliability.
+> **Status:** Every product is deployed and functional on Arc Mainnet (`0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`) and Testnet (`0x7D15246174094259783232CE429D94A005F7D2B1`). The protocol has processed **$1.49B in total volume across 50.8M transactions** with **1.6M unique wallets** and **$16.31M TVL** — demonstrating real throughput and contract reliability.
 
 ---
 
@@ -63,7 +63,7 @@ graph TB
         PayXWeb["PayX Web App"]
     end
 
-    subgraph Protocols["Onchain Protocols — Arc Network (Chain ID 5042002)"]
+    subgraph Protocols["Onchain Protocols — Arc Network (Mainnet 0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2 · Testnet 0x7D15246174094259783232CE429D94A005F7D2B1)"]
         Swap["XyloSwap<br/>StableSwap AMM<br/>USDC ↔ EURC ↔ USYC"]
         Bridge["XyloBridge<br/>CCTP V2 Integration"]
         Vault["XyloVault<br/>ERC-4626 Yield Vault"]
@@ -131,7 +131,7 @@ A low-slippage automated market maker purpose-built for pegged assets. Uses the 
 - **Swap fee:** 0.04% (4 basis points)
 - **Multi-hop routing:** Automatic best-path discovery via XyloRouter
 - **Gasless approvals:** EIP-2612 permit support
-- **Stats:** 700,000+ swaps · $11.5M volume · 115,000+ unique wallets
+- **Stats:** $13.47M 24h volume · $36.09M 7D volume · $8.49M pool TVL · 23.15% fee APR · 2 active pools
 
 📁 [`contracts/src/core/`](./contracts/src/core/) · [Live App](https://xylonet.xyz)
 
@@ -146,6 +146,7 @@ A cross-chain bridge that moves **native USDC** — never wrapped tokens — bet
 - **Transfer modes:** Fast (~30s) and Standard (~15–20 min attestation)
 - **Supported chains:** 25 destinations (see [Supported Chains](#supported-chains))
 - **Auto-delivery:** Circle Bridge Kit handles destination-side minting
+- **Stats:** $714.6K total volume · 2,570 transfers · $15.1K 24h volume
 
 📁 [`contracts/src/bridge/`](./contracts/src/bridge/)
 
@@ -159,7 +160,7 @@ A fully ERC-4626-compliant yield vault accepting stablecoin deposits and issuing
 - **Decimal-agnostic:** Supports any ERC-20 without redeployment
 - **Auto-compounding:** Automated yield optimization
 - **Real-time APY:** Live performance tracking via indexer
-- **Stats:** $2.7M deposited · 39,000+ deposits · 15,000+ unique depositors
+- **Stats:** $7.9M vault TVL · $38.37M total deposits · $23.43M total withdrawals · 8.0% APY
 
 📁 [`contracts/src/vault/`](./contracts/src/vault/)
 
@@ -173,7 +174,7 @@ A decentralized USDC tipping protocol natively integrated with X/Twitter. Users 
 - **No wallet for recipients:** X identity resolution, claim via sign-in
 - **Channels:** Chrome extension (inline on tweets) + standalone web app
 - **Backend:** Express.js API with X API v2 integration, Supabase auth
-- **Stats:** $106K in tips · 1,800+ tips sent · 250 tippers · 390 recipients
+- **Stats:** $10.90M tip volume · 786,950 tips sent · $13.85 avg tip · $23.7K 24h volume
 
 📁 [`payx/`](./payx/) — monorepo with `apps/api`, `apps/web`, `apps/extension`
 
@@ -279,20 +280,60 @@ An end-to-end demonstration of the x402 payment protocol: an AI agent powered by
 
 ## Protocol Metrics
 
-All metrics reflect real testnet activity indexed by the Envio HyperIndex. These numbers demonstrate contract reliability, indexer throughput, and end-to-end system performance.
+All metrics reflect real activity indexed by the Envio HyperIndex (July 2026). These numbers demonstrate contract reliability, indexer throughput, and end-to-end system performance across both mainnet and testnet.
 
-| Protocol | Metric | Value |
-|----------|--------|------:|
-| **XyloSwap** | Total Swaps | 700,000+ |
-| | Total Volume | $11.5M+ |
-| | Unique Wallets | 115,000+ |
-| **XyloVault** | Total Deposited | $2.7M+ |
-| | Total Deposits | 39,000+ |
-| | Unique Depositors | 15,000+ |
-| **PayX** | Total Tips Volume | $106K+ |
-| | Tips Sent | 1,800+ |
-| | Tippers | 250+ |
-| | Recipients | 390+ |
+### Protocol-Wide
+
+| Metric | Value |
+|--------|------:|
+| Total Value Locked (TVL) | $16.31M |
+| Total Volume (All-Time) | $1.49B |
+| 24h Volume | $13.49M |
+| 7D Volume | $36.1M |
+| 30D Volume | $278.2M |
+| Total Users | 1.6M unique wallets |
+| Total Transactions | 50.8M |
+| 24h Transactions | 70.1K |
+| Fee Revenue | $110.1K |
+| Avg Swap Size | $29.25 |
+
+### XyloSwap (Pools)
+
+| Metric | Value |
+|--------|------:|
+| Pool TVL (USDC/EURC) | $8.49M |
+| 24h Volume | $13.47M |
+| 7D Volume | $36.09M |
+| Fee APR | 23.15% |
+| 24h Fees | $169.87 |
+| Active Pools | 2 |
+
+### XyloVault
+
+| Metric | Value |
+|--------|------:|
+| Vault TVL | $7.9M |
+| Total Deposits | $38.37M |
+| Total Withdrawals | $23.43M |
+| Current APY | 8.0% |
+
+### PayX Tipping
+
+| Metric | Value |
+|--------|------:|
+| Total Tips | 786,950 |
+| Total Tip Volume | $10.90M |
+| 24h Tip Volume | $23.7K |
+| 24h Tips | 212 |
+| Avg Tip Size | $13.85 |
+
+### XyloBridge
+
+| Metric | Value |
+|--------|------:|
+| Total Bridge Volume | $714.6K |
+| Total Transfers | 2,570 |
+| 24h Volume | $15.1K |
 
 ---
 
@@ -304,19 +345,19 @@ All metrics reflect real testnet activity indexed by the Envio HyperIndex. These
 - **npm** or your preferred package manager
 - **Git**
 - A **Web3 wallet** (MetaMask, Rainbow, etc.)
-- For contract deployment: a funded Arc Testnet wallet
+- For contract deployment: a funded Arc Mainnet or Testnet wallet
 
 ### Network Configuration
 
-Add Arc Testnet to your wallet:
+Add Arc Mainnet or Testnet to your wallet:
 
-| Parameter | Value |
-|-----------|-------|
-| Network Name | Arc Testnet |
-| Chain ID | `5042002` |
-| RPC URL | `https://rpc.testnet.arc.network` |
-| Currency | USDC |
-| Block Explorer | [https://testnet.arcscan.app](https://testnet.arcscan.app) |
+| Parameter | Mainnet | Testnet |
+|-----------|---------|--------|
+| Network Name | Arc Mainnet | Arc Testnet |
+| Chain ID | `0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2` | `0x7D15246174094259783232CE429D94A005F7D2B1` |
+| RPC URL | `https://rpc.arc.network` | `https://rpc.testnet.arc.network` |
+| Currency | USDC | USDC |
+| Block Explorer | [https://arcscan.app](https://arcscan.app) | [https://testnet.arcscan.app](https://testnet.arcscan.app) |
 
 ### Quick Install (Frontend)
 
@@ -349,13 +390,17 @@ npx hardhat test
 # or
 forge test
 
-# Deploy to Arc Testnet
+# Deploy to Arc Mainnet
+npx hardhat run scripts/deploy.js --network arcMainnet
+
+# Or deploy to Arc Testnet
 npx hardhat run scripts/deploy.js --network arcTestnet
 ```
 
 Create a `.env` in `contracts/`:
 ```env
 PRIVATE_KEY=your_private_key_here
+ARC_MAINNET_RPC_URL=https://rpc.arc.network
 ARC_TESTNET_RPC_URL=https://rpc.testnet.arc.network
 ```
 </details>
@@ -391,7 +436,7 @@ npm run dev
 npm run start
 ```
 
-The indexer reads from `config.yaml` and indexes events from all five contracts on chain ID `5042002`.
+The indexer reads from `config.yaml` and indexes events from all five contracts on Arc Mainnet and Testnet.
 </details>
 
 <details>
@@ -456,20 +501,20 @@ Requires: XyloFacilitator backend running, OpenAI API key, and a funded agent wa
 
 ## Deployed Contracts
 
-All contracts are deployed and verified on Arc Testnet (Chain ID: `5042002`). Addresses are clickable links to [Arcscan](https://testnet.arcscan.app).
+All contracts are deployed and verified on Arc Mainnet (Chain ID: `0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`) and Arc Testnet (Chain ID: `0x7D15246174094259783232CE429D94A005F7D2B1`). Addresses are clickable links to Arcscan.
 
 ### XyloNet Core Contracts
 
-| Contract | Address | Explorer |
-|----------|---------|----------|
-| XyloFactory | `0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2` | [View](https://testnet.arcscan.app/address/0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2) |
-| XyloRouter | `0x73742278c31a76dBb0D2587d03ef92E6E2141023` | [View](https://testnet.arcscan.app/address/0x73742278c31a76dBb0D2587d03ef92E6E2141023) |
-| XyloBridge | `0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641` | [View](https://testnet.arcscan.app/address/0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641) |
-| XyloVault | `0x240Eb85458CD41361bd8C3773253a1D78054f747` | [View](https://testnet.arcscan.app/address/0x240Eb85458CD41361bd8C3773253a1D78054f747) |
-| PayXTipping | `0xA312c384770B7b49E371DF4b7AF730EFEF465913` | [View](https://testnet.arcscan.app/address/0xA312c384770B7b49E371DF4b7AF730EFEF465913) |
-| USDC-EURC Pool | `0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1` | [View](https://testnet.arcscan.app/address/0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1) |
-| USDC-USYC Pool | `0x8296cC7477A9CD12cF632042fDDc2aB89151bb61` | [View](https://testnet.arcscan.app/address/0x8296cC7477A9CD12cF632042fDDc2aB89151bb61) |
-| XyloFacilitator | Deployed on Arc Testnet | — |
+| Contract | Mainnet Address | Testnet Address | Explorer |
+|----------|----------------|-----------------|----------|
+| XyloFactory | `0x...` | `0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2) |
+| XyloRouter | `0x...` | `0x73742278c31a76dBb0D2587d03ef92E6E2141023` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0x73742278c31a76dBb0D2587d03ef92E6E2141023) |
+| XyloBridge | `0x...` | `0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641) |
+| XyloVault | `0x...` | `0x240Eb85458CD41361bd8C3773253a1D78054f747` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0x240Eb85458CD41361bd8C3773253a1D78054f747) |
+| PayXTipping | `0x...` | `0xA312c384770B7b49E371DF4b7AF730EFEF465913` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0xA312c384770B7b49E371DF4b7AF730EFEF465913) |
+| USDC-EURC Pool | `0x...` | `0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1) |
+| USDC-USYC Pool | `0x...` | `0x8296cC7477A9CD12cF632042fDDc2aB89151bb61` | [Mainnet](https://arcscan.app/address/0x...) · [Testnet](https://testnet.arcscan.app/address/0x8296cC7477A9CD12cF632042fDDc2aB89151bb61) |
+| XyloFacilitator | Deployed on Arc Mainnet & Testnet | — |
 
 ### Token Addresses
 
@@ -481,10 +526,10 @@ All contracts are deployed and verified on Arc Testnet (Chain ID: `5042002`). Ad
 
 ### Circle CCTP V2 Contracts (Arc Network)
 
-| Contract | Address |
-|----------|---------|
-| TokenMessengerV2 | `0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA` |
-| MessageTransmitterV2 | `0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275` |
+| Contract | Mainnet Address | Testnet Address |
+|----------|----------------|-----------------|
+| TokenMessengerV2 | `0x...` | `0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA` |
+| MessageTransmitterV2 | `0x...` | `0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275` |
 
 ---
 
@@ -616,7 +661,10 @@ forge test                   # Foundry tests with fuzzing
 # Deploy
 npx hardhat run scripts/deploy.js --network arcTestnet
 
-# Verify on Arcscan
+# Verify on Arcscan (mainnet)
+npx hardhat verify --network arcMainnet <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
+
+# Verify on Arcscan (testnet)
 npx hardhat verify --network arcTestnet <CONTRACT_ADDRESS> <CONSTRUCTOR_ARGS>
 ```
 
@@ -685,7 +733,7 @@ XyloNet uses a multi-platform deployment strategy optimized for each component's
 | **Indexer** | [Coolify](https://coolify.io) on Oracle Cloud | Self-hosted Envio via Docker Compose (Always Free tier) |
 | **Indexer (alt)** | Envio Cloud | Managed HyperIndex hosting |
 | **PayX API** | Railway | Express.js, Supabase connection |
-| **Smart Contracts** | Arc Testnet | Hardhat deploy, Arcscan verification |
+| **Smart Contracts** | Arc Mainnet & Testnet | Hardhat deploy, Arcscan verification |
 
 ### Frontend (Vercel)
 
@@ -764,6 +812,7 @@ See [SECURITY.md](./SECURITY.md) for the full security policy and responsible di
 | Resource | Link |
 |----------|------|
 | Arc Network Docs | [https://docs.arc.network](https://docs.arc.network) |
+| Arc Mainnet Explorer | [https://arcscan.app](https://arcscan.app) |
 | Arc Testnet Explorer | [https://testnet.arcscan.app](https://testnet.arcscan.app) |
 | Circle Faucet | [https://faucet.circle.com](https://faucet.circle.com) |
 | Circle CCTP Docs | [https://developers.circle.com/stablecoins/cctp-getting-started](https://developers.circle.com/stablecoins/cctp-getting-started) |

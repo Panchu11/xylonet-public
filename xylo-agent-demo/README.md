@@ -2,7 +2,7 @@
 
 ## Overview
 
-The XyloNet Agent Demo is an end-to-end reference implementation that demonstrates autonomous AI agents paying for API access using USDC via the HTTP 402 protocol. The demo shows how an agent can detect payment requirements, sign an EIP-3009 authorization, attach proof of payment, and complete a paid API call in under one second on the Arc network.
+The XyloNet Agent Demo is an end-to-end reference implementation that demonstrates autonomous AI agents paying for API access using USDC via the HTTP 402 protocol. The demo shows how an agent can detect payment requirements, sign an EIP-3009 authorization, attach proof of payment, and complete a paid API call in under one second on the Arc network (both mainnet and testnet).
 
 This project is intended as a developer onboarding tool and proof of concept for the XyloFacilitator payment rail. It consists of two components: a **seller API** that exposes paywalled endpoints, and an **autonomous agent** that decides which endpoint to call, handles payment, and formats the response for the user.
 
@@ -149,8 +149,8 @@ FACILITATOR_CONTRACT=0x...
 USDC_CONTRACT=0x...
 
 # Arc
-ARC_RPC_URL=https://rpc-arc-testnet.example.com
-ARC_CHAIN_ID=5042002
+ARC_RPC_URL=https://rpc.arc.network
+ARC_CHAIN_ID=0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2
 
 # Seller wallet (receives payments)
 SELLER_WALLET_PRIVATE_KEY=your_seller_key
@@ -177,8 +177,8 @@ FACILITATOR_API_URL=https://facilitator.xylonet.com/v1
 AGENT_WALLET_PRIVATE_KEY=your_agent_key
 
 # Arc
-ARC_RPC_URL=https://rpc-arc-testnet.example.com
-ARC_CHAIN_ID=5042002
+ARC_RPC_URL=https://rpc.arc.network
+ARC_CHAIN_ID=0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2
 ```
 
 ---

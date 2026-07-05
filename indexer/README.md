@@ -2,7 +2,9 @@
 
 ## Overview
 
-The XyloNet indexer is a HyperIndex-powered event indexer built with Envio v3.2.1. It ingests onchain events from XyloNet smart contracts deployed on Arc Testnet, normalizes them into a relational PostgreSQL schema, and exposes a high-performance GraphQL API through Hasura. The indexer is the primary analytics data source for the XyloNet frontend and any third-party integrations that require aggregated protocol metrics, historical swap data, liquidity events, vault activity, PayX tips, and protocol-level statistics.
+The XyloNet indexer is a HyperIndex-powered event indexer built with Envio v3.2.1. It ingests onchain events from XyloNet smart contracts deployed on Arc Mainnet (`0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`) and Testnet (`0x7D15246174094259783232CE429D94A005F7D2B1`), normalizes them into a relational PostgreSQL schema, and exposes a high-performance GraphQL API through Hasura. The indexer is the primary analytics data source for the XyloNet frontend and any third-party integrations that require aggregated protocol metrics, historical swap data, liquidity events, vault activity, PayX tips, and protocol-level statistics.
+
+The indexer currently tracks **~40 million indexed events** across **50.8M total transactions**.
 
 By indexing events at the contract level, the indexer eliminates the need for frontend polling or approximation of aggregate metrics. Query responses are fast, paginated, and suitable for dashboards, leaderboards, and analytics pages.
 
@@ -50,7 +52,7 @@ Envio listens to specified contract addresses and event signatures, applies hand
 
 ## Contracts Indexed
 
-All contracts are deployed on Arc Testnet. Indexing begins at block **17100000**.
+All contracts are indexed on Arc Mainnet and Testnet. Indexing begins at block **17100000**.
 
 | Contract | Address | Events |
 |----------|---------|--------|
@@ -125,9 +127,24 @@ Example excerpt:
 
 ```yaml
 networks:
-  - id: 5042002
+  - id: 0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2   # Arc Mainnet
     rpc_config:
-      url: https://rpc-arc-testnet.example.com
+      url: https://rpc.arc.network
+    start_block: 17100000
+    contracts:
+      - name: XyloPoolUsdcEurc
+        address: 0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1
+      - name: XyloPoolUsdcUsyc
+        address: 0x8296cC7477A9CD12cF632042fDDc2aB89151bb61
+      - name: XyloVault
+        address: 0x240Eb85458CD41361bd8C3773253a1D78054f747
+      - name: PayXTipping
+        address: 0xA312c384770B7b49E371DF4b7AF730EFEF465913
+      - name: XyloFactory
+        address: 0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2
+  - id: 0x7D15246174094259783232CE429D94A005F7D2B1   # Arc Testnet
+    rpc_config:
+      url: https://rpc.testnet.arc.network
     start_block: 17100000
     contracts:
       - name: XyloPoolUsdcEurc
