@@ -1,0 +1,20 @@
+{
+  "name": "xylofacilitator-contracts",
+  "version": "1.0.0",
+  "description": "XyloFacilitator Smart Contracts on Arc",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network arcTestnet",
+    "verify": "hardhat verify --network arcTestnet"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
+    "@nomicfoundation/hardhat-ethers": "^3.1.3",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.3",
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.16.0",
+    "hardhat": "^2.22.0"
+  }
+}

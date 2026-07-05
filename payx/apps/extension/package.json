@@ -1,0 +1,23 @@
+{
+  "name": "@payx/extension",
+  "version": "1.0.0",
+  "description": "PayX Chrome Extension - Tip anyone on X with USDC on Arc Network",
+  "author": "PayX Team",
+  "license": "MIT",
+  "scripts": {
+    "build": "echo Extension is ready to load in Chrome",
+    "package:win": "powershell Compress-Archive -Path manifest.json,popup.html,popup.js,popup.css,background.js,content.js,content.css,icons -DestinationPath payx-extension.zip -Force",
+    "package:unix": "zip -r payx-extension.zip manifest.json popup.html popup.js popup.css background.js content.js content.css icons/",
+    "validate": "echo Validating manifest.json... && node -e \"console.log(JSON.parse(require('fs').readFileSync('manifest.json','utf8')).name)\""
+  },
+  "devDependencies": {},
+  "keywords": [
+    "chrome-extension",
+    "crypto",
+    "tipping",
+    "usdc",
+    "twitter",
+    "x",
+    "arc-network"
+  ]
+}

@@ -1,0 +1,23 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Recovery/wallet files
+*.dat
+wallets.json
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+artifacts/
+cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

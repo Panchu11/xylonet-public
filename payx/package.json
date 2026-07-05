@@ -1,0 +1,27 @@
+{
+  "name": "payx",
+  "version": "1.0.0",
+  "description": "PayX - Tip anyone on X with USDC on Arc Network",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:api": "cd apps/api && npm run dev",
+    "build:contracts": "cd packages/contracts && forge build",
+    "deploy:testnet": "cd packages/contracts && forge script script/Deploy.s.sol --rpc-url $ARC_TESTNET_RPC_URL --broadcast",
+    "test:contracts": "cd packages/contracts && forge test"
+  },
+  "keywords": [
+    "arc",
+    "tipping",
+    "x",
+    "twitter",
+    "usdc",
+    "web3"
+  ],
+  "author": "PayX Team",
+  "license": "MIT"
+}

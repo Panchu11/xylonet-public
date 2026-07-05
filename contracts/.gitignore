@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+lib/
+
+# Build artifacts
+cache/
+artifacts/
+out/
+
+# Environment (NEVER commit .env with private keys)
+.env
+.env.local
+.env.*.local
+
+# Forge
+broadcast/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

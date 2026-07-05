@@ -1,0 +1,18 @@
+{
+  "name": "circle-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@circle-fin/developer-controlled-wallets": "^10.3.1",
+    "@supabase/supabase-js": "^2.106.1",
+    "viem": "^2.50.4"
+  }
+}

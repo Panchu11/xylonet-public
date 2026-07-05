@@ -1,0 +1,20 @@
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+artifacts/
+cache/
+out/
+typechain-types/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log

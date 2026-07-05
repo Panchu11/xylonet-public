@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: xylonet-indexer
+description: XyloNet Protocol Indexer for Arc Testnet
+
+field_selection:
+  transaction_fields:
+    - hash
+
+contracts:
+  - name: XyloPoolUsdcEurc
+    abi_file_path: ./abis/XyloPool.json
+    events:
+      - event: Swap
+      - event: AddLiquidity
+      - event: RemoveLiquidity
+      - event: RemoveLiquidityOne
+
+  - name: XyloPoolUsdcUsyc
+    abi_file_path: ./abis/XyloPool.json
+    events:
+      - event: Swap
+      - event: AddLiquidity
+      - event: RemoveLiquidity
+      - event: RemoveLiquidityOne
+
+  - name: XyloVault
+    abi_file_path: ./abis/XyloVault.json
+    events:
+      - event: Deposit
+      - event: Withdraw
+
+  - name: PayXTipping
+    abi_file_path: ./abis/PayXTipping.json
+    events:
+      - event: TipSent
+      - event: TipsClaimed
+
+  - name: XyloFactory
+    abi_file_path: ./abis/XyloFactory.json
+    events:
+      - event: PoolCreated
+
+chains:
+  - id: 5042002
+    rpc: https://rpc.testnet.arc.network
+    start_block: 17100000
+    contracts:
+      - name: XyloPoolUsdcEurc
+        address: "0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1"
+      - name: XyloPoolUsdcUsyc
+        address: "0x8296cC7477A9CD12cF632042fDDc2aB89151bb61"
+      - name: XyloVault
+        address: "0x240Eb85458CD41361bd8C3773253a1D78054f747"
+      - name: PayXTipping
+        address: "0xA312c384770B7b49E371DF4b7AF730EFEF465913"
+      - name: XyloFactory
+        address: "0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2"

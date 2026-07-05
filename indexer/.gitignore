@@ -1,0 +1,6 @@
+node_modules/
+generated/
+.envio/
+dist/
+.env
+.env.production

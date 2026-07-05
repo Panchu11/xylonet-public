@@ -1,0 +1,81 @@
+# =============================================================================
+# XyloNet Indexer — Self-Hosted Docker Compose (Envio + PostgreSQL + Hasura)
+# =============================================================================
+# Usage:
+#   cp .env.production.example .env
+#   # edit .env with secure passwords
+#   docker compose up -d --build
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # PostgreSQL 16 — persistent storage for indexed blockchain events
+  # ---------------------------------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - indexer-network
+
+  # ---------------------------------------------------------------------------
+  # Hasura v2.40.0 — GraphQL API layer on top of indexed data
+  # ---------------------------------------------------------------------------
+  hasura:
+    image: hasura/graphql-engine:v2.40.0
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: ${HASURA_GRAPHQL_DATABASE_URL}
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "false"
+      HASURA_GRAPHQL_LOG_LEVEL: "warn"
+      HASURA_GRAPHQL_CORS_DOMAIN: "*"
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "public"
+    networks:
+      - indexer-network
+
+  # ---------------------------------------------------------------------------
+  # Envio Indexer — fetches and processes Arc testnet events into PostgreSQL
+  # ---------------------------------------------------------------------------
+  envio-indexer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ENVIO_PG_HOST: ${ENVIO_PG_HOST}
+      ENVIO_PG_PORT: ${ENVIO_PG_PORT}
+      ENVIO_PG_USER: ${ENVIO_PG_USER}
+      ENVIO_PG_PASSWORD: ${ENVIO_PG_PASSWORD}
+      ENVIO_PG_DATABASE: ${ENVIO_PG_DATABASE}
+      RPC_URL: ${RPC_URL:-https://rpc.testnet.arc.network}
+    networks:
+      - indexer-network
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  indexer-network:
+    driver: bridge

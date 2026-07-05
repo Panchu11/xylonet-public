@@ -1,0 +1,33 @@
+{
+  "name": "@xylofacilitator/sdk",
+  "version": "0.1.0",
+  "description": "AI agent SDK for x402 payments on Arc - auto-handles HTTP 402, EIP-3009 signing, and settlement",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "viem": "^2.47.10"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "viem": ">=2.0.0"
+  },
+  "keywords": ["x402", "ai-agent", "payments", "usdc", "arc", "eip-3009"],
+  "license": "MIT"
+}

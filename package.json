@@ -1,0 +1,26 @@
+{
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.91.0",
+    "docx": "^9.5.1",
+    "dotenv": "^17.2.3",
+    "marked": "^17.0.1",
+    "puppeteer": "^24.40.0",
+    "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "ethers": "^6.16.0",
+    "pdfkit": "^0.17.2",
+    "plantuml-encoder": "^1.4.0"
+  },
+  "name": "xylonet",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">   <img src=\"https://raw.githubusercontent.com/xylonet/brand/main/logo.svg\" width=\"120\" alt=\"XyloNet Logo\" /> </p>",
+  "main": "add-discord-task.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

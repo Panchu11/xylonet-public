@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screenshot Processor for Chrome Store</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      padding: 40px;
+      color: white;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    h1 { text-align: center; margin-bottom: 10px; font-size: 2rem; }
+    .subtitle { text-align: center; color: #888; margin-bottom: 40px; }
+    .upload-zone {
+      border: 3px dashed #4f46e5;
+      border-radius: 20px;
+      padding: 60px;
+      text-align: center;
+      background: rgba(79, 70, 229, 0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 30px;
+    }
+    .upload-zone:hover { background: rgba(79, 70, 229, 0.2); border-color: #6366f1; }
+    .upload-zone input { display: none; }
+    .upload-icon { font-size: 48px; margin-bottom: 15px; }
+    .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+    .option {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 15px;
+    }
+    .option label { display: block; font-size: 12px; color: #888; margin-bottom: 8px; }
+    .option select, .option input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.3);
+      color: white;
+      font-size: 14px;
+    }
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .preview-item {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+    }
+    .preview-item canvas { max-width: 100%; border-radius: 8px; margin-bottom: 10px; }
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #6366f1; }
+    .btn-download-all {
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    }
+    .info {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📸 Screenshot Processor</h1>
+    <p class="subtitle">Resize to 1280x800 with borders for Chrome Web Store</p>
+    <div class="info"><strong>Output:</strong> 1280 x 800 px PNG with customizable border/padding</div>
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+      <div class="upload-icon">📁</div>
+      <div>Click to upload screenshots</div>
+      <div style="font-size: 14px; color: #888; margin-top: 10px;">or drag and drop</div>
+      <input type="file" id="fileInput" multiple accept="image/*">
+    </div>
+    <div class="options">
+      <div class="option">
+        <label>Border Style</label>
+        <select id="borderStyle">
+          <option value="gradient">Gradient Border</option>
+          <option value="solid">Solid Color</option>
+          <option value="shadow">Drop Shadow</option>
+          <option value="none">No Border</option>
+        </select>
+      </div>
+      <div class="option">
+        <label>Background</label>
+        <select id="bgStyle">
+          <option value="dark">Dark (#0a0b0f)</option>
+          <option value="gradient">Gradient</option>
+          <option value="light">Light (#f5f5f5)</option>
+        </select>
+      </div>
+      <div class="option">
+        <label>Padding (px)</label>
+        <input type="number" id="padding" value="40" min="0" max="100">
+      </div>
+    </div>
+    <div id="previewGrid" class="preview-grid"></div>
+    <button class="btn btn-download-all" id="downloadAll" style="display: none;">⬇️ Download All Screenshots</button>
+  </div>
+  <script>
+    const WIDTH = 1280, HEIGHT = 800;
+    let processedImages = [], originalFiles = [];
+    const fileInput = document.getElementById('fileInput');
+    const previewGrid = document.getElementById('previewGrid');
+    const downloadAllBtn = document.getElementById('downloadAll');
+    fileInput.addEventListener('change', handleFiles);
+    const uploadZone = document.querySelector('.upload-zone');
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.style.borderColor = '#22c55e'; });
+    uploadZone.addEventListener('dragleave', () => { uploadZone.style.borderColor = '#4f46e5'; });
+    uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.style.borderColor = '#4f46e5'; handleFiles({ target: { files: e.dataTransfer.files } }); });
+    document.querySelectorAll('.option select, .option input').forEach(el => el.addEventListener('change', reprocessAll));
+    function handleFiles(e) {
+      originalFiles = Array.from(e.target.files);
+      processedImages = [];
+      previewGrid.innerHTML = '';
+      originalFiles.forEach((file, index) => processImage(file, index));
+    }
+    function reprocessAll() {
+      processedImages = [];
+      previewGrid.innerHTML = '';
+      originalFiles.forEach((file, index) => processImage(file, index));
+    }
+    function processImage(file, index) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = WIDTH;
+          canvas.height = HEIGHT;
+          const ctx = canvas.getContext('2d');
+          const padding = parseInt(document.getElementById('padding').value) || 40;
+          const borderStyle = document.getElementById('borderStyle').value;
+          const bgStyle = document.getElementById('bgStyle').value;
+          if (bgStyle === 'dark') { ctx.fillStyle = '#0a0b0f'; ctx.fillRect(0, 0, WIDTH, HEIGHT); }
+          else if (bgStyle === 'gradient') {
+            const grad = ctx.createLinearGradient(0, 0, WIDTH, HEIGHT);
+            grad.addColorStop(0, '#1a1a2e'); grad.addColorStop(1, '#16213e');
+            ctx.fillStyle = grad; ctx.fillRect(0, 0, WIDTH, HEIGHT);
+          } else if (bgStyle === 'light') { ctx.fillStyle = '#f5f5f5'; ctx.fillRect(0, 0, WIDTH, HEIGHT); }
+          const maxW = WIDTH - padding * 2, maxH = HEIGHT - padding * 2;
+          const scale = Math.min(maxW / img.width, maxH / img.height);
+          const drawW = img.width * scale, drawH = img.height * scale;
+          const drawX = (WIDTH - drawW) / 2, drawY = (HEIGHT - drawH) / 2;
+          if (borderStyle === 'gradient') {
+            const grad = ctx.createLinearGradient(drawX, drawY, drawX + drawW, drawY + drawH);
+            grad.addColorStop(0, '#4f46e5'); grad.addColorStop(0.5, '#8b5cf6'); grad.addColorStop(1, '#06b6d4');
+            ctx.fillStyle = grad;
+            roundRect(ctx, drawX - 3, drawY - 3, drawW + 6, drawH + 6, 16); ctx.fill();
+          } else if (borderStyle === 'solid') {
+            ctx.fillStyle = '#4f46e5';
+            roundRect(ctx, drawX - 3, drawY - 3, drawW + 6, drawH + 6, 16); ctx.fill();
+          } else if (borderStyle === 'shadow') {
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 10;
+            ctx.fillStyle = '#000';
+            roundRect(ctx, drawX, drawY, drawW, drawH, 12); ctx.fill();
+            ctx.shadowColor = 'transparent';
+          }
+          ctx.save();
+          roundRect(ctx, drawX, drawY, drawW, drawH, 12); ctx.clip();
+          ctx.drawImage(img, drawX, drawY, drawW, drawH);
+          ctx.restore();
+          const previewItem = document.createElement('div');
+          previewItem.className = 'preview-item';
+          previewItem.innerHTML = '<div style="font-weight: 600; margin-bottom: 10px;">Screenshot ' + (index + 1) + '</div>';
+          previewItem.appendChild(canvas);
+          const downloadBtn = document.createElement('button');
+          downloadBtn.className = 'btn';
+          downloadBtn.textContent = '⬇️ Download';
+          downloadBtn.onclick = () => downloadImage(canvas, 'screenshot-' + (index + 1) + '.png');
+          previewItem.appendChild(downloadBtn);
+          previewGrid.appendChild(previewItem);
+          processedImages.push({ canvas, name: 'screenshot-' + (index + 1) + '.png' });
+          if (processedImages.length > 0) downloadAllBtn.style.display = 'block';
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r); ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h); ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r); ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+    function downloadImage(canvas, filename) {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    downloadAllBtn.addEventListener('click', () => {
+      processedImages.forEach(({ canvas, name }, i) => setTimeout(() => downloadImage(canvas, name), i * 200));
+    });
+  </script>
+</body>
+</html>

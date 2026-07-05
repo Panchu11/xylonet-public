@@ -1,0 +1,18 @@
+{
+  "network": "Arc Testnet",
+  "chainId": 5042002,
+  "deployedAt": "2026-01-09T22:00:24.012Z",
+  "deployer": "0x94e0dc7AD29b94EC9819f6cEC3364DD34f41b3c6",
+  "usdcType": "Real Circle USDC",
+  "usdcDecimals": 6,
+  "contracts": {
+    "USDC": "0x3600000000000000000000000000000000000000",
+    "PayXTipping": "0xA312c384770B7b49E371DF4b7AF730EFEF465913"
+  },
+  "configuration": {
+    "platformFeeBps": 100,
+    "minTipAmount": "0.1 USDC (100000 wei @ 6 decimals)",
+    "oracleSigner": "0x94e0dc7AD29b94EC9819f6cEC3364DD34f41b3c6",
+    "feeRecipient": "0x94e0dc7AD29b94EC9819f6cEC3364DD34f41b3c6"
+  }
+}

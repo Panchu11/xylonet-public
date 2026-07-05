@@ -1,0 +1,24 @@
+# humanstxt.org
+
+/* TEAM */
+Name: ForgeLabs
+Contact: forgelabs@xylonet.xyz
+Twitter: @Xylonet_
+Location: Global
+
+/* SITE */
+Name: XyloNet
+Description: Stablecoin SuperExchange on Arc Network - DEX, Bridge, PayX
+URL: https://www.xylonet.xyz
+Standards: HTML5, CSS3, TypeScript, React, Next.js
+Components: Swap, Bridge, Pools, Vault, PayX
+Software: Next.js, wagmi, viem, RainbowKit
+
+/* BLOCKCHAIN */
+Network: Arc Network (Testnet)
+Contracts: Verified on ArcScan
+Technology: Solidity Smart Contracts
+
+/* BUILD INFO */
+Last Update: 2026-01-15
+Version: 1.0.0

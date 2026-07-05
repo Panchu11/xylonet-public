@@ -1,0 +1,11 @@
+# XyloNet Robots.txt
+# https://www.xylonet.xyz
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.xylonet.xyz/sitemap.xml
+
+# This is a legitimate DeFi application
+# XyloNet - Decentralized Exchange & PayX on ARC Testnet

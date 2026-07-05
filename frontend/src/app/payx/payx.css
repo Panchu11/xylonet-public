@@ -1,0 +1,351 @@
+/* PayX-specific styles - Unified with XyloNet Brand (Slate + Teal) */
+
+.payx-page {
+  --payx-primary: 1, 195, 142;
+  --payx-secondary: 10, 120, 106;
+  --payx-accent: 19, 45, 70;
+}
+
+/* PayX Glass Effects */
+.payx-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.payx-glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.payx-glass-premium {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+/* PayX Card */
+.payx-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.payx-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* PayX Buttons */
+.payx-btn-primary {
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgb(var(--payx-primary)) 0%, rgb(var(--payx-secondary)) 100%);
+  box-shadow: 0 4px 15px -3px rgba(1, 195, 142, 0.4);
+}
+
+.payx-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.payx-btn-primary:hover::before {
+  left: 100%;
+}
+
+.payx-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(1, 195, 142, 0.5);
+}
+
+.payx-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.payx-btn-secondary {
+  position: relative;
+  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.payx-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.payx-btn-ghost {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.payx-btn-ghost:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* PayX Animations */
+@keyframes payx-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(1deg); }
+  75% { transform: translateY(4px) rotate(-1deg); }
+}
+
+@keyframes payx-pulse-glow {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(1, 195, 142, 0.3);
+  }
+  50% { 
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(1, 195, 142, 0.5);
+  }
+}
+
+@keyframes payx-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes payx-fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes payx-pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.payx-animate-float {
+  animation: payx-float 6s ease-in-out infinite;
+}
+
+.payx-animate-pulse-glow {
+  animation: payx-pulse-glow 2s ease-in-out infinite;
+}
+
+.payx-animate-fade-in-up {
+  animation: payx-fade-in-up 0.6s ease-out forwards;
+}
+
+.payx-animate-fade-in-scale {
+  animation: payx-fade-in-scale 0.4s ease-out forwards;
+}
+
+.payx-animate-pulse-slow {
+  animation: payx-pulse-slow 6s ease-in-out infinite;
+}
+
+/* PayX Gradient Orbs */
+.payx-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.payx-orb-primary {
+  background: radial-gradient(circle, rgba(1, 195, 142, 0.4) 0%, transparent 70%);
+}
+
+.payx-orb-secondary {
+  background: radial-gradient(circle, rgba(10, 120, 106, 0.3) 0%, transparent 70%);
+}
+
+.payx-orb-accent {
+  background: radial-gradient(circle, rgba(19, 45, 70, 0.3) 0%, transparent 70%);
+}
+
+/* PayX Status Dot */
+.payx-status-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.payx-status-dot::before {
+  content: '';
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  opacity: 0.75;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.payx-status-dot::after {
+  content: '';
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  height: 0.625rem;
+  width: 0.625rem;
+}
+
+.payx-status-dot.online::before,
+.payx-status-dot.online::after {
+  background-color: rgb(74, 222, 128);
+}
+
+/* ============================================
+   ULTRA-PREMIUM EFFECTS
+   ============================================ */
+
+/* Pulse Slow Animation */
+@keyframes payx-pulse-slow {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.payx-animate-pulse-slow {
+  animation: payx-pulse-slow 4s ease-in-out infinite;
+}
+
+/* 3D Card Hover */
+.payx-card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.payx-card-3d:hover {
+  transform: translateZ(20px) scale(1.02);
+}
+
+/* Gradient Shift Animation */
+@keyframes payx-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.payx-gradient-animate {
+  background-size: 200% 200%;
+  animation: payx-gradient-shift 3s ease infinite;
+}
+
+/* Shimmer Effect */
+@keyframes payx-shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.payx-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: payx-shimmer 2s infinite;
+}
+
+/* Glow Pulse */
+@keyframes payx-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(1, 195, 142, 0.3),
+                0 0 40px rgba(10, 120, 106, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(1, 195, 142, 0.6),
+                0 0 80px rgba(10, 120, 106, 0.4);
+  }
+}
+
+.payx-glow-pulse {
+  animation: payx-glow-pulse 2s ease-in-out infinite;
+}
+
+/* Hover Lift Effect */
+.payx-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.payx-hover-lift:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* Confetti Fall */
+@keyframes payx-confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.payx-confetti {
+  animation: payx-confetti-fall 3s ease-in-out forwards;
+}
+
+/* Gradient Border */
+@keyframes payx-gradient-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.payx-gradient-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#0f172a, #0f172a) padding-box,
+              linear-gradient(90deg, rgb(19, 45, 70), rgb(10, 120, 106), rgb(1, 195, 142)) border-box;
+  background-size: 200% 200%;
+  animation: payx-gradient-border 3s ease infinite;
+}

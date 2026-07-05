@@ -1,0 +1,672 @@
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   PayX Content Script v2.0 - ULTRA PREMIUM DESIGN
+   World-class tip modal with holographic effects and stunning animations
+   Built by ForgeLabs - The Future of Creator Monetization
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+/* Premium Variables */
+:root {
+  --payx-holo: linear-gradient(135deg, 
+    hsl(239, 84%, 67%) 0%, 
+    hsl(271, 81%, 66%) 25%, 
+    hsl(187, 96%, 52%) 50%, 
+    hsl(271, 81%, 66%) 75%, 
+    hsl(239, 84%, 67%) 100%);
+  --payx-primary: hsl(239, 84%, 67%);
+  --payx-secondary: hsl(271, 81%, 66%);
+  --payx-accent: hsl(187, 96%, 52%);
+  --payx-success: hsl(142, 71%, 45%);
+  --payx-surface: hsl(240, 20%, 8%);
+  --payx-surface-elevated: hsl(240, 18%, 12%);
+  --payx-text: hsl(0, 0%, 98%);
+  --payx-text-muted: hsl(240, 5%, 55%);
+  --payx-border: hsla(0, 0%, 100%, 0.08);
+  --payx-glow: hsla(239, 84%, 67%, 0.5);
+  --payx-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   TIP BUTTON - Seamless X Integration
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+.payx-tip-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 2px;
+}
+
+.payx-tip-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px 6px 10px;
+  background: transparent;
+  color: var(--payx-primary);
+  border: none;
+  border-radius: 9999px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--payx-ease);
+  overflow: hidden;
+}
+
+.payx-tip-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 9999px;
+  animation: holoRotate 6s linear infinite paused;
+}
+
+.payx-tip-trigger:hover::before {
+  opacity: 0.12;
+  animation-play-state: running;
+}
+
+@keyframes holoRotate {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.payx-tip-trigger:hover {
+  color: hsl(239, 84%, 75%);
+  transform: scale(1.05);
+}
+
+.payx-tip-trigger:active {
+  transform: scale(0.98);
+}
+
+.payx-tip-trigger img {
+  transition: transform 0.3s var(--payx-ease);
+}
+
+.payx-tip-trigger:hover img {
+  transform: rotate(10deg) scale(1.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MODAL OVERLAY - Cinematic Blur
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: hsla(240, 30%, 4%, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  z-index: 999998;
+  animation: overlayReveal 0.4s var(--payx-ease);
+}
+
+@keyframes overlayReveal {
+  from { 
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MODAL CONTENT - Premium Glass Card
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  max-width: 92vw;
+  background: linear-gradient(165deg, 
+    hsla(240, 20%, 10%, 0.98) 0%, 
+    hsla(260, 25%, 8%, 0.95) 100%);
+  border: 1px solid var(--payx-border);
+  border-radius: 28px;
+  box-shadow: 
+    0 0 0 1px hsla(0, 0%, 100%, 0.05) inset,
+    0 30px 60px -15px hsla(0, 0%, 0%, 0.7),
+    0 0 120px -30px var(--payx-glow);
+  z-index: 999999;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--payx-text);
+  animation: modalEnter 0.5s var(--payx-ease);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.92);
+  }
+}
+
+/* Holographic Border Effect */
+#payx-modal .payx-modal-content::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: var(--payx-holo);
+  background-size: 400% 400%;
+  border-radius: 29px;
+  z-index: -1;
+  opacity: 0.3;
+  animation: borderGlow 8s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; opacity: 0.2; }
+  50% { background-position: 100% 50%; opacity: 0.4; }
+}
+
+/* Ambient Glow Effects */
+#payx-modal .payx-modal-content::after {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, hsla(239, 84%, 60%, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: ambientFloat 12s ease-in-out infinite;
+}
+
+@keyframes ambientFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, 30px); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MODAL HEADER - Premium Title Bar
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-modal-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  background: linear-gradient(180deg, 
+    hsla(0, 0%, 100%, 0.04) 0%, 
+    transparent 100%);
+  border-bottom: 1px solid var(--payx-border);
+}
+
+#payx-modal .payx-modal-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--payx-glow), transparent);
+}
+
+#payx-modal .payx-modal-logo {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--payx-holo);
+  background-size: 300% 300%;
+  animation: holoRotate 8s linear infinite;
+  box-shadow: 0 8px 24px -8px var(--payx-glow);
+}
+
+#payx-modal .payx-modal-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+#payx-modal .payx-modal-logo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.25), transparent 50%);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+#payx-modal .payx-modal-header h2 {
+  flex: 1;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#payx-modal .payx-modal-close {
+  width: 40px;
+  height: 40px;
+  background: hsla(0, 0%, 100%, 0.06);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  border-radius: 14px;
+  color: hsla(0, 0%, 100%, 0.5);
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.3s var(--payx-ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+#payx-modal .payx-modal-close:hover {
+  background: hsla(0, 0%, 100%, 0.12);
+  color: white;
+  transform: rotate(90deg) scale(1.05);
+  border-color: hsla(0, 0%, 100%, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MODAL BODY
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-modal-body {
+  position: relative;
+  padding: 32px 28px;
+  z-index: 1;
+}
+
+/* Connect Prompt */
+#payx-modal .payx-connect-prompt {
+  text-align: center;
+  padding: 48px 0;
+}
+
+#payx-modal .payx-connect-prompt p {
+  color: var(--payx-text-muted);
+  font-size: 16px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+#payx-modal .payx-connect-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 48px;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s var(--payx-ease);
+  box-shadow: 0 8px 32px -8px var(--payx-glow);
+  animation: holoRotate 6s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+#payx-modal .payx-connect-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.2), transparent 50%);
+}
+
+#payx-modal .payx-connect-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 48px -8px var(--payx-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   AMOUNT SELECTOR - Premium Selection Grid
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-amount-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--payx-text-muted);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#payx-modal .payx-amounts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+#payx-modal .payx-amount-btn {
+  position: relative;
+  padding: 18px 12px;
+  background: hsla(0, 0%, 100%, 0.04);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 16px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s var(--payx-ease);
+  overflow: hidden;
+}
+
+#payx-modal .payx-amount-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: holoRotate 4s linear infinite paused;
+}
+
+#payx-modal .payx-amount-btn:hover {
+  border-color: hsla(239, 84%, 67%, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px -8px var(--payx-glow);
+}
+
+#payx-modal .payx-amount-btn:hover::before {
+  opacity: 0.15;
+  animation-play-state: running;
+}
+
+#payx-modal .payx-amount-btn.selected {
+  border-color: transparent;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 32px -8px var(--payx-glow);
+}
+
+#payx-modal .payx-amount-btn.selected::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+/* Custom Amount Input */
+#payx-modal .payx-custom-amount {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: hsla(0, 0%, 100%, 0.04);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+#payx-modal .payx-custom-amount:focus-within {
+  border-color: var(--payx-primary);
+  background: hsla(239, 84%, 67%, 0.06);
+  box-shadow: 0 0 0 4px hsla(239, 84%, 67%, 0.1);
+}
+
+#payx-modal .payx-custom-amount input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  font-family: inherit;
+}
+
+#payx-modal .payx-custom-amount input::placeholder {
+  color: hsla(0, 0%, 100%, 0.3);
+  font-weight: 400;
+}
+
+#payx-modal .payx-custom-amount span {
+  color: var(--payx-text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MESSAGE INPUT - Premium Textarea
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-message {
+  margin-bottom: 24px;
+}
+
+#payx-modal .payx-message textarea {
+  width: 100%;
+  height: 100px;
+  padding: 18px 20px;
+  background: hsla(0, 0%, 100%, 0.04);
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 16px;
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  resize: none;
+  outline: none;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+#payx-modal .payx-message textarea::placeholder {
+  color: hsla(0, 0%, 100%, 0.3);
+}
+
+#payx-modal .payx-message textarea:focus {
+  border-color: var(--payx-primary);
+  background: hsla(239, 84%, 67%, 0.06);
+  box-shadow: 0 0 0 4px hsla(239, 84%, 67%, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   SEND BUTTON - Premium CTA
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-send-btn {
+  position: relative;
+  width: 100%;
+  padding: 20px 28px;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s var(--payx-ease);
+  box-shadow: 0 8px 32px -8px var(--payx-glow);
+  overflow: hidden;
+  animation: holoRotate 6s linear infinite;
+}
+
+#payx-modal .payx-send-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsla(0, 0%, 100%, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+#payx-modal .payx-send-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, hsla(0, 0%, 100%, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+#payx-modal .payx-send-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 16px 48px -8px var(--payx-glow);
+}
+
+#payx-modal .payx-send-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+#payx-modal .payx-send-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+#payx-modal .payx-send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  animation: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   SUCCESS STATE - Celebration Animation
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-success {
+  text-align: center;
+  padding: 48px 0;
+  animation: successReveal 0.6s var(--payx-ease);
+}
+
+@keyframes successReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+}
+
+#payx-modal .payx-success-icon {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(135deg, var(--payx-success), hsl(150, 80%, 35%));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  margin: 0 auto 28px;
+  box-shadow: 0 16px 48px -12px hsla(142, 71%, 45%, 0.5);
+  animation: successPop 0.6s var(--payx-ease);
+}
+
+@keyframes successPop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+#payx-modal .payx-success-icon::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border: 2px solid hsla(142, 71%, 45%, 0.3);
+  border-radius: 50%;
+  animation: successRipple 1.5s ease-out infinite;
+}
+
+@keyframes successRipple {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+#payx-modal .payx-success h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+#payx-modal .payx-success p {
+  color: var(--payx-text-muted);
+  font-size: 16px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+#payx-modal .payx-success a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--payx-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 24px;
+  background: hsla(239, 84%, 67%, 0.1);
+  border: 1px solid hsla(239, 84%, 67%, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+#payx-modal .payx-success a:hover {
+  background: hsla(239, 84%, 67%, 0.2);
+  border-color: hsla(239, 84%, 67%, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   MODAL FOOTER - Brand Attribution
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-modal-footer {
+  position: relative;
+  padding: 18px 28px;
+  background: linear-gradient(180deg, transparent, hsla(0, 0%, 0%, 0.2));
+  border-top: 1px solid var(--payx-border);
+  text-align: center;
+  font-size: 12px;
+  color: var(--payx-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#payx-modal .payx-modal-footer .payx-footer-logo {
+  width: 14px;
+  height: 14px;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  border-radius: 4px;
+  animation: holoRotate 4s linear infinite;
+}
+
+#payx-modal .payx-modal-footer strong {
+  font-weight: 600;
+  background: var(--payx-holo);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holoRotate 4s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════════
+   LOADING SPINNER
+═══════════════════════════════════════════════════════════════════════════════════ */
+
+#payx-modal .payx-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid hsla(0, 0%, 100%, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

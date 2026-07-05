@@ -1,0 +1,116 @@
+type Swap @entity {
+  id: ID!
+  pool: String!
+  sender: String!
+  tokenIn: String!
+  tokenOut: String!
+  amountIn: BigInt!
+  amountOut: BigInt!
+  to: String!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String!
+}
+
+type Pool @entity {
+  id: ID!
+  address: String!
+  token0: String!
+  token1: String!
+  totalVolume: BigInt!
+  txCount: BigInt!
+}
+
+type LiquidityEvent @entity {
+  id: ID!
+  pool: String!
+  provider: String!
+  eventType: String!
+  amounts: [BigInt!]!
+  lpTokens: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String!
+}
+
+type VaultEvent @entity {
+  id: ID!
+  caller: String!
+  owner: String!
+  assets: BigInt!
+  shares: BigInt!
+  eventType: String!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String!
+}
+
+type Tip @entity {
+  id: ID!
+  handleHash: String!
+  handle: String!
+  tipper: String!
+  amount: BigInt!
+  fee: BigInt!
+  message: String!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String!
+}
+
+type TipClaim @entity {
+  id: ID!
+  handleHash: String!
+  handle: String!
+  wallet: String!
+  amount: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: String!
+}
+
+type DailyVolume @entity {
+  id: ID!
+  date: String!
+  swapVolume: BigInt!
+  vaultDeposits: BigInt!
+  vaultWithdrawals: BigInt!
+  tipVolume: BigInt!
+  swapCount: BigInt!
+  depositCount: BigInt!
+  withdrawCount: BigInt!
+  tipCount: BigInt!
+}
+
+type PoolDailyVolume @entity {
+  id: ID! # `${poolAddress}-${YYYY-MM-DD}`
+  pool: String!
+  date: String!
+  volume: BigInt!
+  txCount: BigInt!
+}
+
+type ProtocolUser @entity {
+  id: ID!
+  address: String!
+  swapCount: BigInt!
+  liquidityCount: BigInt!
+  vaultCount: BigInt!
+  tipCount: BigInt!
+  totalSwapVolume: BigInt!
+  firstSeenAt: BigInt!
+  lastSeenAt: BigInt!
+}
+
+type ProtocolStats @entity {
+  id: ID!
+  totalUsers: BigInt!
+  totalSwaps: BigInt!
+  totalTips: BigInt!
+  totalFeeRevenue: BigInt!
+  totalSwapVolume: BigInt!
+  totalTipVolume: BigInt!
+  totalVaultDeposits: BigInt!
+  totalVaultWithdrawals: BigInt!
+  lastUpdated: BigInt!
+}

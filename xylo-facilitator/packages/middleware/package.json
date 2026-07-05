@@ -1,0 +1,54 @@
+{
+  "name": "@xylofacilitator/middleware",
+  "version": "0.1.0",
+  "description": "Server middleware for x402 payments - Express, Next.js, and Hono adapters for API monetization",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./express": {
+      "types": "./dist/express.d.ts",
+      "import": "./dist/express.mjs",
+      "require": "./dist/express.js"
+    },
+    "./nextjs": {
+      "types": "./dist/nextjs.d.ts",
+      "import": "./dist/nextjs.mjs",
+      "require": "./dist/nextjs.js"
+    },
+    "./hono": {
+      "types": "./dist/hono.d.ts",
+      "import": "./dist/hono.mjs",
+      "require": "./dist/hono.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup src/index.ts src/express.ts src/nextjs.ts src/hono.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts src/express.ts src/nextjs.ts src/hono.ts --format cjs,esm --dts --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "express": "^5.1.0",
+    "hono": "^4.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "express": ">=4.0.0",
+    "hono": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": { "optional": true },
+    "hono": { "optional": true }
+  },
+  "keywords": ["x402", "middleware", "express", "nextjs", "hono", "payments", "usdc", "api-monetization"],
+  "license": "MIT"
+}
