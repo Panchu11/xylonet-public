@@ -4,7 +4,7 @@
 
 XyloFacilitator is a payment-rail infrastructure that enables AI agents to pay for API access using USDC over the internet. It implements the **HTTP 402 Payment Required** protocol, combining offchain authentication, a reverse proxy, and onchain settlement through EIP-3009 gasless authorizations. Agents can autonomously discover payment requirements, authorize USDC transfers, attach proof of payment to requests, and receive API responses within seconds.
 
-The system is designed for the machine-payable web: AI agents, bots, and automated services that need reliable, low-friction, blockchain-settled access to paid APIs without credit cards, subscriptions, or manual user intervention. Settlement is supported on both Arc Mainnet (`0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`) and Testnet (`0x7D15246174094259783232CE429D94A005F7D2B1`).
+The system is designed for the machine-payable web: AI agents, bots, and automated services that need reliable, low-friction, blockchain-settled access to paid APIs without credit cards, subscriptions, or manual user intervention. Settlement runs on Arc Testnet (chain ID `5042002`).
 
 ---
 
@@ -227,7 +227,7 @@ NODE_ENV=production
 # Arc RPC
 ARC_RPC_URL=https://rpc.arc.network
 ARC_TESTNET_RPC_URL=https://rpc.testnet.arc.network
-ARC_CHAIN_ID=0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2
+ARC_CHAIN_ID=5042002
 
 # Contract addresses
 FACILITATOR_CONTRACT=0x...

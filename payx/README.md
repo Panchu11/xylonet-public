@@ -2,7 +2,7 @@
 
 ## Overview
 
-PayX is a social payment layer that lets anyone send USDC tips to X (Twitter) creators by their handle, without needing the creator to pre-register a wallet. Tips are held in escrow by the `PayXTipping` smart contract until the creator authenticates with X OAuth, connects a wallet, and claims their earnings. PayX turns posts, profiles, and viral content into direct, borderless revenue streams using stablecoin infrastructure on Arc (both mainnet and testnet).
+PayX is a social payment layer that lets anyone send USDC tips to X (Twitter) creators by their handle, without needing the creator to pre-register a wallet. Tips are held in escrow by the `PayXTipping` smart contract until the creator authenticates with X OAuth, connects a wallet, and claims their earnings. PayX turns posts, profiles, and viral content into direct, borderless revenue streams using stablecoin infrastructure on Arc Testnet.
 
 PayX consists of a multi-app architecture spanning an Express API, a Next.js web app, a Chrome extension, and a shared Solidity contract package.
 
@@ -54,7 +54,7 @@ Tipper                    PayXTipping Contract              Creator
 ## Smart Contract
 
 **Contract:** `PayXTipping.sol`  
-**Deployed:** Arc Mainnet (`0x...`) and Testnet (`0xA312c384770B7b49E371DF4b7AF730EFEF465913`)
+**Deployed:** Arc Testnet (`0xA312c384770B7b49E371DF4b7AF730EFEF465913`)
 
 The `PayXTipping` contract escrows USDC keyed by a hash of the creator's X handle.
 
@@ -197,7 +197,7 @@ TWITTER_CALLBACK_URL=http://localhost:4000/auth/twitter/callback
 
 # Arc
 ARC_RPC_URL=https://rpc.arc.network
-ARC_CHAIN_ID=0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2
+ARC_CHAIN_ID=5042002
 PAYX_TIPPING_CONTRACT=0xA312c384770B7b49E371DF4b7AF730EFEF465913
 USDC_CONTRACT=0x...
 

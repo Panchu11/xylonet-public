@@ -4,7 +4,7 @@
 
 The XyloNet smart contract suite is the onchain foundation of the XyloNet protocol — a stablecoin-focused DeFi stack built natively for the Arc ecosystem. The contracts implement a Curve-inspired 2-asset StableSwap decentralized exchange, an ERC-4626 style yield vault, a Circle CCTP V2 cross-chain USDC bridge wrapper, and the supporting infrastructure (factory, router, LP token) required to compose them into a unified liquidity and payment protocol.
 
-All core contracts are written in Solidity, target the Arc EVM-equivalent execution environment, and are deployed on both Arc Mainnet (`0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`) and Testnet (`0x7D15246174094259783232CE429D94A005F7D2B1`). The system emphasizes gas efficiency, secure accounting, reentrancy protection, and clean separation between pool logic, routing logic, vault logic, and bridge logic.
+All core contracts are written in Solidity, target the Arc EVM-equivalent execution environment, and are deployed on Arc Testnet (chain ID `5042002`). The system emphasizes gas efficiency, secure accounting, reentrancy protection, and clean separation between pool logic, routing logic, vault logic, and bridge logic.
 
 This repository uses both Hardhat and Foundry, giving contributors flexibility in compilation, testing, and deployment workflows.
 
@@ -191,18 +191,7 @@ The contract handles domain mapping, recipient encoding, and message attestation
 
 ## Deployed Addresses
 
-### Arc Mainnet (Chain ID: `0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2`)
-
-| Contract | Address |
-|----------|--------|
-| XyloFactory | `0x...` |
-| XyloRouter | `0x...` |
-| XyloBridge | `0x...` |
-| XyloVault | `0x...` |
-| USDC-EURC Pool | `0x...` |
-| USDC-USYC Pool | `0x...` |
-
-### Arc Testnet (Chain ID: `0x7D15246174094259783232CE429D94A005F7D2B1`)
+### Arc Testnet (Chain ID: `5042002`)
 
 | Contract | Address |
 |----------|---------|

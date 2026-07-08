@@ -2,7 +2,7 @@
 
 ## Overview
 
-The XyloNet frontend is the user-facing web application for the XyloNet DeFi protocol. It provides a complete interface for swapping stablecoins, bridging USDC across chains, providing liquidity, depositing into yield vaults, claiming PayX tips, exploring protocol analytics, and reading documentation. The application is built as a modern Next.js app, optimized for the Arc ecosystem (both mainnet and testnet), and integrates deeply with onchain wallets, Circle's AppKit, RainbowKit, and real-time data sources.
+The XyloNet frontend is the user-facing web application for the XyloNet DeFi protocol. It provides a complete interface for swapping stablecoins, bridging USDC across chains, providing liquidity, depositing into yield vaults, claiming PayX tips, exploring protocol analytics, and reading documentation. The application is built as a modern Next.js app, optimized for the Arc ecosystem (Arc Testnet), and integrates deeply with onchain wallets, Circle's AppKit, RainbowKit, and real-time data sources.
 
 The frontend consumes onchain data through a hybrid architecture that combines Envio GraphQL indexing, direct RPC calls via viem/wagmi, and PayX-specific data from Supabase. This design delivers fast, paginated analytics without sacrificing trustlessness: aggregate protocol metrics come from the indexer, while wallet-specific balances and approvals are read directly from Arc nodes.
 
@@ -77,7 +77,7 @@ frontend/
 
 - Node.js 20 or later
 - npm or pnpm
-- An Arc-compatible wallet (e.g., MetaMask configured for Arc Mainnet / Testnet)
+- An Arc-compatible wallet (e.g., MetaMask configured for Arc Testnet)
 - Access to a deployed XyloNet indexer endpoint
 - (Optional) Supabase credentials for PayX features
 
@@ -115,19 +115,18 @@ npm run lint
 Create a `.env.local` file in `frontend/` with the following variables:
 
 ```env
-# Arc RPC (Mainnet + Testnet)
+# Arc RPC (Testnet)
 NEXT_PUBLIC_ARC_RPC_URL=https://rpc.arc.network
 NEXT_PUBLIC_ARC_TESTNET_RPC_URL=https://rpc.testnet.arc.network
 
-# Contract addresses (Arc Mainnet / Testnet)
+# Contract addresses (Arc Testnet)
 NEXT_PUBLIC_FACTORY_ADDRESS=0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2
 NEXT_PUBLIC_ROUTER_ADDRESS=0x73742278c31a76dBb0D2587d03ef92E6E2141023
 NEXT_PUBLIC_BRIDGE_ADDRESS=0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641
 NEXT_PUBLIC_VAULT_ADDRESS=0x240Eb85458CD41361bd8C3773253a1D78054f747
 
 # Chain IDs (hex)
-NEXT_PUBLIC_ARC_MAINNET_CHAIN_ID=0x7C49597c5C39c5278D1D37F2F5C35D1e8bD4faC2
-NEXT_PUBLIC_ARC_TESTNET_CHAIN_ID=0x7D15246174094259783232CE429D94A005F7D2B1
+NEXT_PUBLIC_CHAIN_ID=5042002
 
 # Indexer
 NEXT_PUBLIC_ENVIO_URL=https://your-envio-indexer.hasura.app/v1/graphql
