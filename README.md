@@ -3,8 +3,10 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset=".github/assets/hero-light.svg">
-  <img src=".github/assets/hero-dark.svg" alt="XyloNet — Swap, Bridge, Earn, Tip, Pay. One stablecoin-native protocol suite built on Arc." width="100%">
+  <img src=".github/assets/hero-dark.svg" alt="XyloNet — Swap, Bridge, Earn, Tip, Pay. One stablecoin-native protocol suite built on Arc. USDC, EURC and USYC orbit the XyloNet symbol." width="100%">
 </picture>
+
+<sub>▶ &nbsp;Look closer — the coins are really orbiting. This README is alive: pure SVG animation, no GIFs, no JavaScript, nothing external.</sub>
 
 <br/>
 
@@ -42,15 +44,13 @@
 
 ## ⬡ The Suite
 
-Five protocols, one thesis: *money that settles like a message.*
+Five protocols, one thesis: *money that settles like a message.* Pick a door:
 
-| | Protocol | One-liner | Live stats <sub>(Jul 8, 2026)</sub> |
-|---|----------|-----------|------------------------------------|
-| ⇄ | **[XyloSwap](#-xyloswap--the-stablecoin-amm)** | Curve-style StableSwap AMM for pegged assets | $1.50B volume · 51.09M swaps · $8.5M liquidity |
-| ◈ | **[XyloBridge](#-xylobridge--native-usdc-across-19-chains)** | Native USDC to 19 chains via Circle CCTP V2 | $1.99M bridged · 6,589 transfers |
-| ▣ | **[XyloVault](#-xylovault--the-erc-4626-yield-vault)** | ERC-4626 vault with decimal-agnostic accounting | $7.9M TVL · $38.8M lifetime deposits |
-| ✦ | **[PayX](#-payx--usdc-tipping-for-x)** | Tip anyone on X in USDC — recipient needs no wallet | 787.5K tips · $10.9M tipped |
-| ◎ | **[XyloFacilitator](#-xylofacilitator--http-402-rails-for-ai-agents)** | HTTP 402 payment rails for AI agents (EIP-3009) | Deployed + [live agent demo](./xylo-agent-demo) |
+<div align="center">
+
+<a href="#-xyloswap--the-stablecoin-amm"><img src=".github/assets/tile-swap.svg" width="185" alt="XyloSwap — StableSwap AMM. $1.50B volume traded."></a>&nbsp;<a href="#-xylobridge--native-usdc-across-19-chains"><img src=".github/assets/tile-bridge.svg" width="185" alt="XyloBridge — CCTP V2 native. 19 chains connected."></a>&nbsp;<a href="#-xylovault--the-erc-4626-yield-vault"><img src=".github/assets/tile-vault.svg" width="185" alt="XyloVault — ERC-4626 shares. $7.9M earning right now."></a>&nbsp;<a href="#-payx--usdc-tipping-for-x"><img src=".github/assets/tile-payx.svg" width="185" alt="PayX — tip anyone on X. 787.5K tips escrowed."></a>&nbsp;<a href="#-xylofacilitator--http-402-rails-for-ai-agents"><img src=".github/assets/tile-x402.svg" width="185" alt="XyloFacilitator — HTTP 402 rails. Sub-second USDC settlement."></a>
+
+</div>
 
 Plus the connective tissue: a **[real-time indexer](#-data--indexing)** (Envio HyperIndex), a **[production Next.js app](./frontend)** with a public analytics dashboard, and an **[autonomous agent demo](./xylo-agent-demo)** that pays for its own API calls.
 
@@ -68,6 +68,8 @@ reentrancy      mutex lock on every state-changing function
 live pools      USDC/EURC · USDC/USYC
 ```
 
+**Live pairs:** <img src="frontend/public/tokens/usdc.svg" width="16" align="top" alt="">&hairsp;<img src="frontend/public/tokens/eurc.png" width="16" align="top" alt=""> USDC/EURC &nbsp;·&nbsp; <img src="frontend/public/tokens/usdc.svg" width="16" align="top" alt="">&hairsp;<img src="frontend/public/tokens/usyc.png" width="16" align="top" alt=""> USDC/USYC
+
 **Real throughput:** 51,090,479 swaps totalling $1.50B, generating $110.2K in protocol fees — averaging $29.43 per swap, which tells you this is thousands of real wallets transacting, not a handful of whales inflating volume.
 
 <sub>📁 [`contracts/src/core/`](./contracts/src/core) — `XyloFactory` · `XyloRouter` · `XyloStablePool` · `XyloERC20`</sub>
@@ -76,15 +78,22 @@ live pools      USDC/EURC · USDC/USYC
 
 ### ◈ XyloBridge — native USDC across 19 chains
 
-No wrapped tokens, no liquidity pools to drain, no IOUs. XyloBridge moves **native USDC** with Circle's burn-and-mint **CCTP V2**, integrated in the frontend through the official Circle App Kit (`@circle-fin/app-kit`).
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg">
+  <img src=".github/assets/circle-symbol-light.svg" width="18" align="left" alt="Circle">
+</picture>
 
-Supported testnet routes (19 chains, verified from [the bridge widget](./frontend/src/components/bridge/BridgeWidget.tsx)):
+&nbsp;**Powered by Circle.** No wrapped tokens, no liquidity pools to drain, no IOUs. XyloBridge moves **native USDC** with Circle's burn-and-mint **CCTP V2**, integrated in the frontend through the official Circle App Kit (`@circle-fin/app-kit`).
 
-```
-Arc · Ethereum Sepolia · Arbitrum Sepolia · Base Sepolia · Optimism Sepolia
-Polygon Amoy · Avalanche Fuji · Linea Sepolia · Unichain Sepolia · World Chain Sepolia
-Sonic · Sei · Monad · HyperEVM · Ink Sepolia · Codex · Plume · Morph · Edge
-```
+Supported testnet routes — 19 chains, verified from [the bridge widget](./frontend/src/components/bridge/BridgeWidget.tsx):
+
+<div align="center">
+
+| <img src="frontend/public/chains/arc.svg" width="28" alt=""><br><sub>Arc</sub> | <img src="frontend/public/chains/ethereum.svg" width="28" alt=""><br><sub>Ethereum</sub> | <img src="frontend/public/chains/arbitrum.svg" width="28" alt=""><br><sub>Arbitrum</sub> | <img src="frontend/public/chains/base.jpg" width="28" alt=""><br><sub>Base</sub> | <img src="frontend/public/chains/optimism.svg" width="28" alt=""><br><sub>Optimism</sub> | <img src="frontend/public/chains/polygon.svg" width="28" alt=""><br><sub>Polygon</sub> | <img src="frontend/public/chains/avalanche.svg" width="28" alt=""><br><sub>Avalanche</sub> | <img src="frontend/public/chains/linea.png" width="28" alt=""><br><sub>Linea</sub> | <img src="frontend/public/chains/unichain.png" width="28" alt=""><br><sub>Unichain</sub> | <img src="frontend/public/chains/worldchain.png" width="28" alt=""><br><sub>World&nbsp;Chain</sub> |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| <img src="frontend/public/chains/sonic.png" width="28" alt=""><br><sub>Sonic</sub> | <img src="frontend/public/chains/sei.png" width="28" alt=""><br><sub>Sei</sub> | <img src="frontend/public/chains/monad.svg" width="28" alt=""><br><sub>Monad</sub> | <img src="frontend/public/chains/hyperevm.png" width="28" alt=""><br><sub>HyperEVM</sub> | <img src="frontend/public/chains/ink.png" width="28" alt=""><br><sub>Ink</sub> | <img src="frontend/public/chains/codex.png" width="28" alt=""><br><sub>Codex</sub> | <img src="frontend/public/chains/plume.png" width="28" alt=""><br><sub>Plume</sub> | <img src="frontend/public/chains/morph.jpg" width="28" alt=""><br><sub>Morph</sub> | <img src="frontend/public/chains/edgeX.jpg" width="28" alt=""><br><sub>Edge</sub> | |
+
+</div>
 
 Where supported, Circle's Orbit relayer enables **single-signature bridging** — sign once, USDC arrives on the destination chain automatically. Every completed transfer is captured to the analytics pipeline; **$1.99M across 6,589 transfers** since tracking began July 2, 2026.
 
@@ -104,7 +113,9 @@ A tokenized vault following the ERC-4626 share model, with one deliberate design
 
 ### ✦ PayX — USDC tipping for X
 
-The unlock: **the recipient doesn't need a wallet, or even to know they were tipped.** Tips are escrowed on-chain against the *handle*, and claimed later by proving ownership of that handle via X OAuth.
+<img src="frontend/public/branding/payx/payx-icon-gradient.svg" width="34" align="left" alt="PayX">
+
+&nbsp;The unlock: **the recipient doesn't need a wallet, or even to know they were tipped.** Tips are escrowed on-chain against the *handle*, and claimed later by proving ownership of that handle via X OAuth.
 
 ```
 tip  →  PayXTipping.sol escrows USDC against keccak256(handle)
@@ -119,7 +130,15 @@ Ships as three surfaces in the [`payx/`](./payx) monorepo: a **Chrome extension*
 
 ### ◎ XyloFacilitator — HTTP 402 rails for AI agents
 
-The HTTP status code `402 Payment Required` has been reserved since 1997. XyloFacilitator finally puts it to work — as **x402 payment infrastructure** where AI agents pay per API call in USDC, gaslessly:
+The HTTP status code `402 Payment Required` has been reserved since 1997. XyloFacilitator finally puts it to work — as **x402 payment infrastructure** where AI agents pay per API call in USDC, gaslessly. Watch the loop run — a real USDC payment, end to end:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/rail-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/rail-light.svg">
+  <img src=".github/assets/rail-dark.svg" alt="Animated x402 loop: a USDC coin travels from the AI agent through XyloFacilitator to the seller API; the gate cycles 402 Payment Required → verifying → 200 OK, and data flows back." width="100%">
+</picture>
+
+And the same flow, message by message:
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#132D46','primaryTextColor':'#E8F0F7','primaryBorderColor':'#01C38E','lineColor':'#5E7A94','signalColor':'#5E7A94','signalTextColor':'#8FA5BA','actorBkg':'#132D46','actorTextColor':'#E8F0F7','actorBorder':'#01C38E','activationBkgColor':'#01C38E','noteBkgColor':'#0E1E33','noteTextColor':'#9FB3C8','noteBorderColor':'#2A4A66'}}}%%
@@ -223,7 +242,7 @@ XyloNet/
 
 | | |
 |---|---|
-| Network name | `Arc Testnet` |
+| Network | <img src="frontend/public/chains/arc.svg" width="16" align="top" alt=""> `Arc Testnet` |
 | Chain ID | `5042002` |
 | RPC URL | `https://rpc.testnet.arc.network` |
 | Gas currency | **USDC** (yes, really) |
@@ -327,11 +346,11 @@ All addresses live on **Arc Testnet** (`5042002`) and verifiable on [Arcscan](ht
 
 | Token / Contract | Address | Notes |
 |------------------|---------|-------|
-| USDC (native) | `0x3600000000000000000000000000000000000000` | 6 decimals, also the gas token |
-| EURC | `0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a` | 6 decimals |
-| USYC | `0xe9185F0c5F296Ed1797AaE4238D26CCaBEadb86C` | 6 decimals |
-| CCTP TokenMessenger | `0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA` | Circle CCTP V2 |
-| CCTP MessageTransmitter | `0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275` | Circle CCTP V2 |
+| <img src="frontend/public/tokens/usdc.svg" width="18" align="top" alt=""> USDC (native) | `0x3600000000000000000000000000000000000000` | 6 decimals, also the gas token |
+| <img src="frontend/public/tokens/eurc.png" width="18" align="top" alt=""> EURC | `0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a` | 6 decimals |
+| <img src="frontend/public/tokens/usyc.png" width="18" align="top" alt=""> USYC | `0xe9185F0c5F296Ed1797AaE4238D26CCaBEadb86C` | 6 decimals |
+| <picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg"><img src=".github/assets/circle-symbol-light.svg" width="16" align="top" alt=""></picture> CCTP TokenMessenger | `0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA` | Circle CCTP V2 |
+| <picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg"><img src=".github/assets/circle-symbol-light.svg" width="16" align="top" alt=""></picture> CCTP MessageTransmitter | `0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275` | Circle CCTP V2 |
 
 </details>
 
@@ -396,6 +415,12 @@ PRs welcome — read [CONTRIBUTING.md](./CONTRIBUTING.md) first. The short versi
 <br/>
 
 <div align="center">
+
+<img src="frontend/public/branding/xylonet-symbol.svg" width="52" alt="XyloNet">
+
+<br/><br/>
+
+<a href="https://arc.network"><img src="frontend/public/chains/arc.svg" width="30" alt="Arc Network"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://circle.com"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg"><img src=".github/assets/circle-symbol-light.svg" width="30" alt="Circle"></picture></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.circle.com/usdc"><img src="frontend/public/tokens/usdc.svg" width="30" alt="USDC"></a>
 
 **Built on [Arc](https://arc.network) · Powered by [Circle](https://circle.com) · Indexed by [Envio](https://envio.dev)**
 
