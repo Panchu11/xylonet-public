@@ -1,48 +1,39 @@
 <svg width="1200" height="160" viewBox="0 0 1200 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="XyloNet totals: $1.50B all-time volume, 51.09M swaps, 1.63M unique wallets, $16.4M TVL, 787.5K tips.">
   <defs>
     <linearGradient id="sbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0E1E33"/><stop offset="100%" stop-color="#0A1420"/></linearGradient>
-    <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#01C38E" stop-opacity="0"/><stop offset="50%" stop-color="#01C38E" stop-opacity="0.8"/><stop offset="100%" stop-color="#01C38E" stop-opacity="0"/>
-    </linearGradient>
+    <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#01C38E" stop-opacity="0"/><stop offset="50%" stop-color="#01C38E" stop-opacity="0.8"/><stop offset="100%" stop-color="#01C38E" stop-opacity="0"/></linearGradient>
   </defs>
   <rect width="1200" height="160" rx="16" fill="url(#sbg)"/>
-  <rect x="-300" y="0" width="300" height="2" fill="url(#scan)">
-    <animate attributeName="x" values="-300;1200" dur="4.5s" repeatCount="indefinite"/>
-  </rect>
+  <rect x="-300" y="0" width="300" height="2" fill="url(#scan)"><animate attributeName="x" values="-300;1200" dur="4.5s" repeatCount="indefinite"/></rect>
   
-    <g transform="translate(120,0)" text-anchor="middle" opacity="0">
-      <animate attributeName="opacity" values="0;1" begin="0.15s" dur="0.6s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="120 14" to="120 0" begin="0.15s" dur="0.6s" fill="freeze" additive="replace"/>
-      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E">$1.50B</text>
-      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8">ALL-TIME VOLUME</text>
+    <g transform="translate(120,0)" text-anchor="middle">
+      <text x="0" y="76" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="32" font-weight="800" fill="#01C38E" opacity="0.35">$•.••B<animate attributeName="opacity" values="0.35;0.35;0" keyTimes="0;0.85;1" begin="0s" dur="0.75s" fill="freeze"/></text>
+      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.20s" dur="0.5s" fill="freeze"/>$1.50B</text>
+      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.20s" dur="0.7s" fill="freeze"/>ALL-TIME VOLUME</text>
     </g>
     <path d="M240 45 V115" stroke="rgba(255,255,255,0.08)"/>
-    <g transform="translate(360,0)" text-anchor="middle" opacity="0">
-      <animate attributeName="opacity" values="0;1" begin="0.33s" dur="0.6s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="360 14" to="360 0" begin="0.33s" dur="0.6s" fill="freeze" additive="replace"/>
-      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#FFFFFF">51.09M</text>
-      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8">SWAPS EXECUTED</text>
+    <g transform="translate(360,0)" text-anchor="middle">
+      <text x="0" y="76" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="32" font-weight="800" fill="#FFFFFF" opacity="0.35">••.••M<animate attributeName="opacity" values="0.35;0.35;0" keyTimes="0;0.85;1" begin="0s" dur="0.97s" fill="freeze"/></text>
+      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.42s" dur="0.5s" fill="freeze"/>51.09M</text>
+      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.42s" dur="0.7s" fill="freeze"/>SWAPS EXECUTED</text>
     </g>
     <path d="M480 45 V115" stroke="rgba(255,255,255,0.08)"/>
-    <g transform="translate(600,0)" text-anchor="middle" opacity="0">
-      <animate attributeName="opacity" values="0;1" begin="0.51s" dur="0.6s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="600 14" to="600 0" begin="0.51s" dur="0.6s" fill="freeze" additive="replace"/>
-      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E">1.63M</text>
-      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8">UNIQUE WALLETS</text>
+    <g transform="translate(600,0)" text-anchor="middle">
+      <text x="0" y="76" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="32" font-weight="800" fill="#01C38E" opacity="0.35">•.••M<animate attributeName="opacity" values="0.35;0.35;0" keyTimes="0;0.85;1" begin="0s" dur="1.19s" fill="freeze"/></text>
+      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.64s" dur="0.5s" fill="freeze"/>1.63M</text>
+      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.64s" dur="0.7s" fill="freeze"/>UNIQUE WALLETS</text>
     </g>
     <path d="M720 45 V115" stroke="rgba(255,255,255,0.08)"/>
-    <g transform="translate(840,0)" text-anchor="middle" opacity="0">
-      <animate attributeName="opacity" values="0;1" begin="0.69s" dur="0.6s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="840 14" to="840 0" begin="0.69s" dur="0.6s" fill="freeze" additive="replace"/>
-      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#FFFFFF">$16.4M</text>
-      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8">VALUE LOCKED</text>
+    <g transform="translate(840,0)" text-anchor="middle">
+      <text x="0" y="76" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="32" font-weight="800" fill="#FFFFFF" opacity="0.35">$••.•M<animate attributeName="opacity" values="0.35;0.35;0" keyTimes="0;0.85;1" begin="0s" dur="1.41s" fill="freeze"/></text>
+      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.86s" dur="0.5s" fill="freeze"/>$16.4M</text>
+      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.86s" dur="0.7s" fill="freeze"/>VALUE LOCKED</text>
     </g>
     <path d="M960 45 V115" stroke="rgba(255,255,255,0.08)"/>
-    <g transform="translate(1080,0)" text-anchor="middle" opacity="0">
-      <animate attributeName="opacity" values="0;1" begin="0.87s" dur="0.6s" fill="freeze"/>
-      <animateTransform attributeName="transform" type="translate" from="1080 14" to="1080 0" begin="0.87s" dur="0.6s" fill="freeze" additive="replace"/>
-      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E">787.5K</text>
-      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8">TIPS SENT</text>
+    <g transform="translate(1080,0)" text-anchor="middle">
+      <text x="0" y="76" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="32" font-weight="800" fill="#01C38E" opacity="0.35">•••.•K<animate attributeName="opacity" values="0.35;0.35;0" keyTimes="0;0.85;1" begin="0s" dur="1.63s" fill="freeze"/></text>
+      <text x="0" y="76" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="34" font-weight="800" fill="#01C38E" opacity="0"><animate attributeName="opacity" values="0;1" begin="1.08s" dur="0.5s" fill="freeze"/>787.5K</text>
+      <text x="0" y="104" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" letter-spacing="1.8" fill="#7E93A8" opacity="0"><animate attributeName="opacity" values="0;1" begin="1.08s" dur="0.7s" fill="freeze"/>TIPS SENT</text>
     </g>
     
   <text x="600" y="142" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" letter-spacing="0.5" fill="#54697E">On-chain totals from the Envio HyperIndex · Arc Testnet · snapshot July 8, 2026</text>

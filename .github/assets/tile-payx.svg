@@ -1,18 +1,18 @@
 <svg width="232" height="150" viewBox="0 0 232 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PayX — tip anyone on X. 787.5K tips escrowed.">
   <defs>
     <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12233A"/><stop offset="100%" stop-color="#0B1624"/></linearGradient>
-    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#EF9F27" stop-opacity="0"/><stop offset="50%" stop-color="#EF9F27"/><stop offset="100%" stop-color="#EF9F27" stop-opacity="0"/>
-    </linearGradient>
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#EF9F27" stop-opacity="0"/><stop offset="50%" stop-color="#EF9F27"/><stop offset="100%" stop-color="#EF9F27" stop-opacity="0"/></linearGradient>
   </defs>
   <rect x="1" y="1" width="230" height="148" rx="16" fill="url(#tbg)" stroke="#EF9F27" stroke-opacity="0.35"/>
-  <rect x="-120" y="1" width="120" height="2" fill="url(#sweep)">
-    <animate attributeName="x" values="-120;232" dur="3.6s" repeatCount="indefinite"/>
-  </rect>
-  <text x="22" y="46" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" fill="#EF9F27">✦</text>
+  <rect x="-120" y="1" width="120" height="2" fill="url(#sweep)"><animate attributeName="x" values="-120;232" dur="3.6s" repeatCount="indefinite"/></rect>
+  <text x="22" y="46" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" fill="#EF9F27">✦<animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/></text>
   <text x="54" y="44" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">PayX</text>
   <text x="22" y="72" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#8FA5BA">tip anyone on X</text>
   <text x="22" y="112" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="26" font-weight="800" fill="#EF9F27">787.5K</text>
   <text x="22" y="132" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" letter-spacing="0.8" fill="#7E93A8">TIPS ESCROWED</text>
-  <path d="M196 124 h14 m-5 -5 l5 5 -5 5" stroke="#8FA5BA" stroke-width="1.6" fill="none"/>
+  <g stroke="#8FA5BA" stroke-width="1.6" fill="none">
+    <path d="M196 124 h14 m-5 -5 l5 5 -5 5">
+      <animateTransform attributeName="transform" type="translate" values="0 0;5 0;0 0" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
 </svg>

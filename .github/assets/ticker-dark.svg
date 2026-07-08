@@ -1,0 +1,135 @@
+<svg width="1200" height="64" viewBox="0 0 1200 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live ticker of real Arc Testnet transactions: swaps, tips and vault events with confirmed transaction hashes.">
+  <defs><clipPath id="win"><rect x="212" y="0" width="988" height="64" rx="0"/></clipPath></defs>
+  <rect width="1200" height="64" rx="12" fill="#0A1420"/>
+  <g clip-path="url(#win)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="212 0" to="-2288 0" dur="50s" repeatCount="indefinite"/>
+      <g transform="translate(0,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$480.75 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x7558…0283 · confirmed on Arc</text>
+  </g><g transform="translate(250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$4.95 → @antonmqlk</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xe43f…ce96 · confirmed on Arc</text>
+  </g><g transform="translate(500,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.10 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xbf7c…58cb · confirmed on Arc</text>
+  </g><g transform="translate(750,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#378ADD" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#378ADD"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#378ADD">VAULT</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$710.00 withdraw</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x6d7e…61fd · confirmed on Arc</text>
+  </g><g transform="translate(1000,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.99 → @sleeveddresses</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x9e12…29f8 · confirmed on Arc</text>
+  </g><g transform="translate(1250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$761.25 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x50f7…64e1 · confirmed on Arc</text>
+  </g><g transform="translate(1500,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#378ADD" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#378ADD"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#378ADD">VAULT</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.03 deposit</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x8039…9390 · confirmed on Arc</text>
+  </g><g transform="translate(1750,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.39 → @blender</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xd764…30e8 · confirmed on Arc</text>
+  </g><g transform="translate(2000,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.03 EURC→USDC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xd4b5…384c · confirmed on Arc</text>
+  </g><g transform="translate(2250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.04 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xfbaa…48b9 · confirmed on Arc</text>
+  </g>
+      <g transform="translate(2500,0)"><g transform="translate(0,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$480.75 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x7558…0283 · confirmed on Arc</text>
+  </g><g transform="translate(250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$4.95 → @antonmqlk</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xe43f…ce96 · confirmed on Arc</text>
+  </g><g transform="translate(500,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.10 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xbf7c…58cb · confirmed on Arc</text>
+  </g><g transform="translate(750,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#378ADD" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#378ADD"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#378ADD">VAULT</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$710.00 withdraw</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x6d7e…61fd · confirmed on Arc</text>
+  </g><g transform="translate(1000,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.99 → @sleeveddresses</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x9e12…29f8 · confirmed on Arc</text>
+  </g><g transform="translate(1250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$761.25 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x50f7…64e1 · confirmed on Arc</text>
+  </g><g transform="translate(1500,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#378ADD" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#378ADD"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#378ADD">VAULT</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.03 deposit</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0x8039…9390 · confirmed on Arc</text>
+  </g><g transform="translate(1750,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#EF9F27" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#EF9F27"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#EF9F27">TIP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.39 → @blender</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xd764…30e8 · confirmed on Arc</text>
+  </g><g transform="translate(2000,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.03 EURC→USDC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xd4b5…384c · confirmed on Arc</text>
+  </g><g transform="translate(2250,0)">
+    <rect x="8" y="10" width="234" height="44" rx="10" fill="#0E1E33" stroke="#01C38E" stroke-opacity="0.3"/>
+    <circle cx="26" cy="32" r="4" fill="#01C38E"/>
+    <text x="38" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="700" fill="#01C38E">SWAP</text>
+    <text x="80" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#DDE8F2">$0.04 USDC→EURC</text>
+    <text x="38" y="46" font-family="ui-monospace,'Cascadia Code',Consolas,'Courier New',monospace" font-size="10" fill="#5E7A94">0xfbaa…48b9 · confirmed on Arc</text>
+  </g></g>
+    </g>
+  </g>
+  <rect x="0" y="0" width="212" height="64" rx="12" fill="#0E1E33"/>
+  <circle cx="24" cy="32" r="5" fill="#01C38E"><animate attributeName="opacity" values="1;0.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+  <text x="40" y="28" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="800" letter-spacing="1.5" fill="#01C38E">LIVE FROM ARC</text>
+  <text x="40" y="45" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" letter-spacing="0.5" fill="#7E93A8">real tx hashes — verify any</text>
+</svg>

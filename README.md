@@ -1,3 +1,17 @@
+<!--
+        ██╗  ██╗██╗   ██╗██╗      ██████╗ ███╗   ██╗███████╗████████╗
+        ╚██╗██╔╝╚██╗ ██╔╝██║     ██╔═══██╗████╗  ██║██╔════╝╚══██╔══╝
+         ╚███╔╝  ╚████╔╝ ██║     ██║   ██║██╔██╗ ██║█████╗     ██║
+         ██╔██╗   ╚██╔╝  ██║     ██║   ██║██║╚██╗██║██╔══╝     ██║
+        ██╔╝ ██╗   ██║   ███████╗╚██████╔╝██║ ╚████║███████╗   ██║
+        ╚═╝  ╚═╝   ╚═╝   ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝   ╚═╝
+
+        You read source. We like you already.
+        Everything animating on this page is hand-built SVG — no GIFs,
+        no JavaScript, no external services. Every number is on-chain.
+        Come build with us: https://xylonet.xyz
+-->
+
 <div align="center">
 
 <picture>
@@ -6,7 +20,11 @@
   <img src=".github/assets/hero-dark.svg" alt="XyloNet — Swap, Bridge, Earn, Tip, Pay. One stablecoin-native protocol suite built on Arc. USDC, EURC and USYC orbit the XyloNet symbol." width="100%">
 </picture>
 
-<sub>▶ &nbsp;Look closer — the coins are really orbiting. This README is alive: pure SVG animation, no GIFs, no JavaScript, nothing external.</sub>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/ticker-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/ticker-light.svg">
+  <img src=".github/assets/ticker-dark.svg" alt="Live ticker of real Arc Testnet transactions — swaps, tips and vault events with confirmed hashes." width="100%">
+</picture>
 
 <br/>
 
@@ -89,7 +107,7 @@ Supported testnet routes — 19 chains, verified from [the bridge widget](./fron
 
 <div align="center">
 
-| <img src="frontend/public/chains/arc.svg" width="28" alt=""><br><sub>Arc</sub> | <img src="frontend/public/chains/ethereum.svg" width="28" alt=""><br><sub>Ethereum</sub> | <img src="frontend/public/chains/arbitrum.svg" width="28" alt=""><br><sub>Arbitrum</sub> | <img src="frontend/public/chains/base.jpg" width="28" alt=""><br><sub>Base</sub> | <img src="frontend/public/chains/optimism.svg" width="28" alt=""><br><sub>Optimism</sub> | <img src="frontend/public/chains/polygon.svg" width="28" alt=""><br><sub>Polygon</sub> | <img src="frontend/public/chains/avalanche.svg" width="28" alt=""><br><sub>Avalanche</sub> | <img src="frontend/public/chains/linea.png" width="28" alt=""><br><sub>Linea</sub> | <img src="frontend/public/chains/unichain.png" width="28" alt=""><br><sub>Unichain</sub> | <img src="frontend/public/chains/worldchain.png" width="28" alt=""><br><sub>World&nbsp;Chain</sub> |
+| <img src="frontend/public/chains/arc.png" width="28" alt=""><br><sub>Arc</sub> | <img src="frontend/public/chains/ethereum.svg" width="28" alt=""><br><sub>Ethereum</sub> | <img src="frontend/public/chains/arbitrum.svg" width="28" alt=""><br><sub>Arbitrum</sub> | <img src="frontend/public/chains/base.jpg" width="28" alt=""><br><sub>Base</sub> | <img src="frontend/public/chains/optimism.svg" width="28" alt=""><br><sub>Optimism</sub> | <img src="frontend/public/chains/polygon.svg" width="28" alt=""><br><sub>Polygon</sub> | <img src="frontend/public/chains/avalanche.svg" width="28" alt=""><br><sub>Avalanche</sub> | <img src="frontend/public/chains/linea.png" width="28" alt=""><br><sub>Linea</sub> | <img src="frontend/public/chains/unichain.png" width="28" alt=""><br><sub>Unichain</sub> | <img src="frontend/public/chains/worldchain.png" width="28" alt=""><br><sub>World&nbsp;Chain</sub> |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | <img src="frontend/public/chains/sonic.png" width="28" alt=""><br><sub>Sonic</sub> | <img src="frontend/public/chains/sei.png" width="28" alt=""><br><sub>Sei</sub> | <img src="frontend/public/chains/monad.svg" width="28" alt=""><br><sub>Monad</sub> | <img src="frontend/public/chains/hyperevm.png" width="28" alt=""><br><sub>HyperEVM</sub> | <img src="frontend/public/chains/ink.png" width="28" alt=""><br><sub>Ink</sub> | <img src="frontend/public/chains/codex.png" width="28" alt=""><br><sub>Codex</sub> | <img src="frontend/public/chains/plume.png" width="28" alt=""><br><sub>Plume</sub> | <img src="frontend/public/chains/morph.jpg" width="28" alt=""><br><sub>Morph</sub> | <img src="frontend/public/chains/edgeX.jpg" width="28" alt=""><br><sub>Edge</sub> | |
 
@@ -138,6 +156,10 @@ The HTTP status code `402 Payment Required` has been reserved since 1997. XyloFa
   <img src=".github/assets/rail-dark.svg" alt="Animated x402 loop: a USDC coin travels from the AI agent through XyloFacilitator to the seller API; the gate cycles 402 Payment Required → verifying → 200 OK, and data flows back." width="100%">
 </picture>
 
+Here's the exact session, as the demo runs it — watch it type:
+
+<img src=".github/assets/terminal.svg" alt="Terminal recording: the agent hits 402 Payment Required, signs an EIP-3009 authorization with no gas, retries with the X-PAYMENT header, and receives 200 OK with the weather data — settled on Arc." width="100%">
+
 And the same flow, message by message:
 
 ```mermaid
@@ -168,6 +190,15 @@ The agent never holds gas — it signs an **EIP-3009 `transferWithAuthorization`
 ---
 
 ## ⛩ Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/circuit-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset=".github/assets/circuit-light.svg">
+  <img src=".github/assets/circuit-dark.svg" alt="Living architecture: packets continuously flow from the Next.js app through the five protocols to Arc Testnet, down into the Envio indexer, and back to the app as analytics." width="100%">
+</picture>
+
+<details>
+<summary><b>Expand the full component graph</b></summary>
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#132D46','primaryTextColor':'#E8F0F7','primaryBorderColor':'#01C38E','lineColor':'#5E7A94','clusterBkg':'#0E1E33','clusterBorder':'#2A4A66','edgeLabelBackground':'#0E1E33','tertiaryTextColor':'#9FB3C8'}}}%%
@@ -213,6 +244,8 @@ graph TB
     FE -.->|bridge + offchain state| SB
 ```
 
+</details>
+
 **The hybrid-data rule that keeps the numbers honest:** every protocol metric (volume, TVL, users, tips) comes exclusively from contract events aggregated *inside the indexer* — single-row `ProtocolStats` entities updated per event, never assembled from paginated samples client-side. Supabase holds only what doesn't exist on Arc: bridge transfers (executed on remote chains via CCTP), OAuth sessions, and the points system.
 
 ---
@@ -242,7 +275,7 @@ XyloNet/
 
 | | |
 |---|---|
-| Network | <img src="frontend/public/chains/arc.svg" width="16" align="top" alt=""> `Arc Testnet` |
+| Network | <img src="frontend/public/chains/arc.png" width="16" align="top" alt=""> `Arc Testnet` |
 | Chain ID | `5042002` |
 | RPC URL | `https://rpc.testnet.arc.network` |
 | Gas currency | **USDC** (yes, really) |
@@ -420,7 +453,7 @@ PRs welcome — read [CONTRIBUTING.md](./CONTRIBUTING.md) first. The short versi
 
 <br/><br/>
 
-<a href="https://arc.network"><img src="frontend/public/chains/arc.svg" width="30" alt="Arc Network"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://circle.com"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg"><img src=".github/assets/circle-symbol-light.svg" width="30" alt="Circle"></picture></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.circle.com/usdc"><img src="frontend/public/tokens/usdc.svg" width="30" alt="USDC"></a>
+<a href="https://arc.network"><img src="frontend/public/chains/arc.png" width="30" alt="Arc Network"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://circle.com"><picture><source media="(prefers-color-scheme: dark)" srcset=".github/assets/circle-symbol-dark.svg"><img src=".github/assets/circle-symbol-light.svg" width="30" alt="Circle"></picture></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.circle.com/usdc"><img src="frontend/public/tokens/usdc.svg" width="30" alt="USDC"></a>
 
 **Built on [Arc](https://arc.network) · Powered by [Circle](https://circle.com) · Indexed by [Envio](https://envio.dev)**
 
