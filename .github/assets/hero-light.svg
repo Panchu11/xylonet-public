@@ -1,0 +1,74 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="XyloNet — the stablecoin-native DeFi suite on Arc">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6FBF9"/>
+      <stop offset="100%" stop-color="#EDF6F2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#01C38E" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#01C38E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#01C38E" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#0A9873" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#378ADD" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A9873"/>
+      <stop offset="100%" stop-color="#01C38E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="300" rx="18" fill="url(#bg)" stroke="#D5E7DF" stroke-width="1"/>
+  <circle cx="1030" cy="80" r="260" fill="url(#glow)"/>
+  <circle cx="1030" cy="80" r="150" stroke="#0A9873" stroke-opacity="0.15" stroke-width="1"/>
+  <circle cx="1030" cy="80" r="200" stroke="#0A9873" stroke-opacity="0.09" stroke-width="1"/>
+  <circle cx="1030" cy="80" r="250" stroke="#0A9873" stroke-opacity="0.05" stroke-width="1"/>
+
+  <g stroke="#132D46" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 75 H1200"/><path d="M0 150 H1200"/><path d="M0 225 H1200"/>
+    <path d="M200 0 V300"/><path d="M400 0 V300"/><path d="M600 0 V300"/><path d="M800 0 V300"/><path d="M1000 0 V300"/>
+  </g>
+
+  <path d="M0 258 C 220 230, 380 286, 600 258 S 980 230, 1200 262" stroke="url(#wave)" stroke-width="2" fill="none"/>
+  <path d="M0 272 C 220 246, 380 298, 600 272 S 980 246, 1200 276" stroke="url(#wave)" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+  <g transform="translate(64,52)">
+    <rect x="0" y="0" width="318" height="30" rx="15" fill="#01C38E" fill-opacity="0.10" stroke="#0A9873" stroke-opacity="0.45" stroke-width="1"/>
+    <circle cx="20" cy="15" r="4" fill="#0A9873"/>
+    <text x="36" y="20" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="2.5" fill="#0A7D60">BUILT ON ARC · SETTLED IN USDC</text>
+  </g>
+
+  <text x="62" y="164" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="76" font-weight="800" letter-spacing="4" fill="#132D46">XYLO<tspan fill="#0A9873">NET</tspan></text>
+
+  <text x="64" y="204" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" letter-spacing="0.4" fill="#4E6478">Swap · Bridge · Earn · Tip · Pay — one stablecoin-native protocol suite.</text>
+
+  <g font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600">
+    <g transform="translate(64,232)">
+      <rect width="150" height="32" rx="16" fill="#FFFFFF" stroke="#0A9873" stroke-opacity="0.5"/>
+      <text x="75" y="21" text-anchor="middle" fill="#0A7D60">⇄ StableSwap AMM</text>
+    </g>
+    <g transform="translate(226,232)">
+      <rect width="146" height="32" rx="16" fill="#FFFFFF" stroke="#185FA5" stroke-opacity="0.45"/>
+      <text x="73" y="21" text-anchor="middle" fill="#185FA5">◈ CCTP V2 Bridge</text>
+    </g>
+    <g transform="translate(384,232)">
+      <rect width="146" height="32" rx="16" fill="#FFFFFF" stroke="#0A9873" stroke-opacity="0.5"/>
+      <text x="73" y="21" text-anchor="middle" fill="#0A7D60">▣ ERC-4626 Vault</text>
+    </g>
+    <g transform="translate(542,232)">
+      <rect width="140" height="32" rx="16" fill="#FFFFFF" stroke="#BA7517" stroke-opacity="0.5"/>
+      <text x="70" y="21" text-anchor="middle" fill="#9A6210">✦ PayX Tipping</text>
+    </g>
+    <g transform="translate(694,232)">
+      <rect width="162" height="32" rx="16" fill="#FFFFFF" stroke="#185FA5" stroke-opacity="0.45"/>
+      <text x="81" y="21" text-anchor="middle" fill="#185FA5">◎ x402 Agent Rails</text>
+    </g>
+  </g>
+
+  <g transform="translate(985,178)">
+    <rect x="-4" y="-24" width="176" height="70" rx="12" fill="#FFFFFF" stroke="#D5E7DF"/>
+    <text x="84" y="0" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="24" font-weight="800" fill="url(#mint)">$1.5B+</text>
+    <text x="84" y="24" text-anchor="middle" font-family="-apple-system,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" letter-spacing="1.5" fill="#6B8095">VOLUME PROCESSED</text>
+  </g>
+</svg>
