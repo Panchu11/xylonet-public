@@ -15,7 +15,7 @@ const footerLinks = {
   ],
   resources: [
     { name: 'Documentation', href: '/docs', disabled: false },
-    { name: 'GitHub', href: '#', disabled: true },
+    { name: 'GitHub', href: 'https://github.com/Panchu11/xylonet-public', external: true },
     { name: 'Arc Network', href: 'https://www.arc.network/', external: true },
     { name: 'Circle CCTP', href: 'https://www.circle.com/en/cross-chain-transfer-protocol', external: true },
   ],

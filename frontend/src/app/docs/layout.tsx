@@ -94,12 +94,17 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
-            <span
-              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 cursor-not-allowed"
+            <a
+              href="https://github.com/Panchu11/xylonet-public"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-400 hover:text-white transition-colors"
             >
               GitHub
-              <span className="text-xs">(Soon)</span>
-            </span>
+              <svg className="w-3.5 h-3.5 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             <Link
               href="/swap"
               className="px-4 py-2 bg-gradient-to-r from-[#0A786A] to-[#01C38E] rounded-lg text-sm font-semibold text-white hover:shadow-lg hover:shadow-[#01C38E]/20 transition-all"
