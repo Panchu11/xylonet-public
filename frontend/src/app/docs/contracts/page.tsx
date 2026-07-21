@@ -203,10 +203,10 @@ export default function ContractsPage() {
               <h4 className="text-white font-semibold mb-1">Integration Guide</h4>
               <p className="text-gray-400 text-sm">Learn how to integrate with XyloNet contracts</p>
             </a>
-            <div className="p-4 bg-white/5 rounded-lg opacity-60 cursor-not-allowed">
-              <h4 className="text-white font-semibold mb-1">GitHub Repository</h4>
-              <p className="text-gray-400 text-sm">Coming Soon</p>
-            </div>
+            <a href="https://github.com/Panchu11/xylonet-public/tree/main/integration-pack" target="_blank" rel="noopener" className="p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
+              <h4 className="text-white font-semibold mb-1">Integration Pack (GitHub)</h4>
+              <p className="text-gray-400 text-sm">Clean ABIs + machine-readable addresses/config JSON</p>
+            </a>
           </div>
         </div>
       </section>

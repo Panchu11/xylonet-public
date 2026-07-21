@@ -246,9 +246,9 @@ export default function QuickStartPage() {
             <a href="https://discord.gg/mcDkHNrFyA" target="_blank" rel="noopener" className="px-4 py-2 bg-[#0A786A]/20 text-[#0A786A] rounded-lg hover:bg-[#0A786A]/30 transition-colors">
               Discord
             </a>
-            <span className="px-4 py-2 bg-gray-500/10 text-gray-500 rounded-lg cursor-not-allowed">
-              GitHub (Coming Soon)
-            </span>
+            <a href="https://github.com/Panchu11/xylonet-public" target="_blank" rel="noopener" className="px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors">
+              GitHub
+            </a>
           </div>
         </div>
       </section>

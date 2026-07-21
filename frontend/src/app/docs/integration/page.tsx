@@ -58,17 +58,22 @@ export default function IntegrationPage() {
             <h3 className="text-lg font-bold text-white mb-4">Get Quote</h3>
             <p className="text-gray-300 mb-4">Get the expected output amount for a swap:</p>
             <div className="bg-[#0f172a] rounded-lg p-4 font-mono text-sm overflow-x-auto">
-              <pre className="text-gray-300">{`// Solidity
+              <pre className="text-gray-300">{`// Solidity — the router resolves the pool via the factory,
+// no pool address needed
 function getAmountOut(
-    address pool,
     address tokenIn,
     address tokenOut,
     uint256 amountIn
 ) external view returns (uint256 amountOut);
 
+// Multi-hop quote along a path (all paths route through USDC)
+function getAmountsOut(
+    uint256 amountIn,
+    address[] calldata path
+) external view returns (uint256[] memory amounts);
+
 // Example: Get quote for 1000 USDC -> EURC
 uint256 amountOut = router.getAmountOut(
-    0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1, // USDC-EURC pool
     0x3600000000000000000000000000000000000000, // USDC
     0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a, // EURC
     1000 * 1e6 // 1000 USDC (6 decimals)
@@ -80,29 +85,38 @@ uint256 amountOut = router.getAmountOut(
             <h3 className="text-lg font-bold text-white mb-4">Execute Swap</h3>
             <p className="text-gray-300 mb-4">Execute a swap through the router:</p>
             <div className="bg-[#0f172a] rounded-lg p-4 font-mono text-sm overflow-x-auto">
-              <pre className="text-gray-300">{`// Solidity
-function swap(
-    address pool,
-    address tokenIn,
-    address tokenOut,
+              <pre className="text-gray-300">{`// Solidity — Uniswap-V2-style exact-input swap (recommended)
+function swapExactTokensForTokens(
     uint256 amountIn,
     uint256 minAmountOut,
+    address[] calldata path,
     address to,
     uint256 deadline
-) external returns (uint256 amountOut);
+) external returns (uint256[] memory amounts);
 
 // Example: Swap 1000 USDC for EURC with 0.5% slippage
-IERC20(USDC).approve(router, 1000 * 1e6);
+uint256 amountIn = 1000 * 1e6;
+IERC20(USDC).approve(router, amountIn);
 
-uint256 received = router.swap(
-    USDC_EURC_POOL,
-    USDC,
-    EURC,
-    1000 * 1e6,           // Amount in
-    995 * 1e6,            // Min amount out (0.5% slippage)
+// Quote first, then derive the slippage floor from the quote
+uint256 quoted = router.getAmountOut(USDC, EURC, amountIn);
+uint256 minOut = (quoted * 995) / 1000; // 0.5% slippage
+
+address[] memory path = new address[](2);
+path[0] = USDC;
+path[1] = EURC;
+
+uint256[] memory amounts = router.swapExactTokensForTokens(
+    amountIn,
+    minOut,
+    path,
     msg.sender,           // Recipient
     block.timestamp + 300 // 5 min deadline
-);`}</pre>
+);
+
+// One-transaction alternative (no separate approve):
+// swapWithPermit(...) — USDC, EURC and USYC all support
+// EIP-2612 permit on Arc`}</pre>
             </div>
           </div>
         </div>
@@ -166,29 +180,33 @@ uint256 assets = vault.previewWithdraw(shares);`}</pre>
       </section>
 
       <section className="mb-12">
-        <h2 className="text-2xl font-bold text-white mb-6">JavaScript/TypeScript SDK</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">TypeScript Examples (viem / wagmi)</h2>
         <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-          <p className="text-gray-300 mb-4">Use wagmi/viem for easy integration:</p>
+          <p className="text-gray-300 mb-4">
+            Ready-to-use ABIs and a machine-readable address/config file are in the{' '}
+            <a href="https://github.com/Panchu11/xylonet-public/tree/main/integration-pack" target="_blank" rel="noopener" className="text-[#01C38E] hover:underline">integration pack</a> on GitHub:
+          </p>
           <div className="bg-[#0f172a] rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">{`import { useWriteContract, useReadContract } from 'wagmi'
+import ROUTER_ABI from './abis/XyloRouter.json' // integration-pack/abis
 
-const ROUTER_ABI = [...] // Import from ABI files
+const ROUTER = '0x73742278c31a76dBb0D2587d03ef92E6E2141023'
 
-// Read quote
-const { data: quote } = useReadContract({
-  address: '0x73742278c31a76dBb0D2587d03ef92E6E2141023',
+// Read quote — router resolves the pool internally
+const { data: amountOut } = useReadContract({
+  address: ROUTER,
   abi: ROUTER_ABI,
   functionName: 'getAmountOut',
-  args: [poolAddress, tokenIn, tokenOut, amountIn]
+  args: [tokenIn, tokenOut, amountIn]
 })
 
-// Execute swap
+// Execute swap (after ERC-20 approve to the router)
 const { writeContract } = useWriteContract()
 writeContract({
-  address: '0x73742278c31a76dBb0D2587d03ef92E6E2141023',
+  address: ROUTER,
   abi: ROUTER_ABI,
-  functionName: 'swap',
-  args: [pool, tokenIn, tokenOut, amountIn, minOut, recipient, deadline]
+  functionName: 'swapExactTokensForTokens',
+  args: [amountIn, minAmountOut, [tokenIn, tokenOut], recipient, deadline]
 })`}</pre>
           </div>
         </div>
@@ -245,7 +263,7 @@ event Withdraw(
         <div className="bg-gradient-to-r from-[#0A786A]/10 to-[#01C38E]/10 border border-[#0A786A]/30 rounded-xl p-6">
           <p className="text-gray-300 mb-4">For integration support:</p>
           <div className="flex flex-wrap gap-4">
-            <span className="px-4 py-2 bg-gray-500/10 text-gray-500 rounded-lg cursor-not-allowed">GitHub (Coming Soon)</span>
+            <a href="https://github.com/Panchu11/xylonet-public" target="_blank" rel="noopener" className="px-4 py-2 bg-white/10 rounded-lg text-white hover:bg-white/20 transition-colors">GitHub</a>
             <a href="https://discord.gg/mcDkHNrFyA" target="_blank" rel="noopener" className="px-4 py-2 bg-white/10 rounded-lg text-white hover:bg-white/20 transition-colors">Discord</a>
             <a href="https://x.com/Xylonet_" target="_blank" rel="noopener" className="px-4 py-2 bg-white/10 rounded-lg text-white hover:bg-white/20 transition-colors">X (Twitter)</a>
           </div>

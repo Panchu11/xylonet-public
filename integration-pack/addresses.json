@@ -1,0 +1,46 @@
+{
+  "network": {
+    "name": "Arc Testnet",
+    "chainId": 5042002,
+    "gasToken": "USDC (native — Arc uses USDC as its gas token, there is no separate native coin)",
+    "rpc": [
+      "https://rpc.testnet.arc.network",
+      "https://testnet.imola.arct.network",
+      "https://rpc.quicknode.testnet.arc.network",
+      "https://rpc.drpc.testnet.arc.network",
+      "https://rpc.blockdaemon.testnet.arc.network"
+    ],
+    "explorer": "https://testnet.arcscan.app",
+    "cctpDomain": 26
+  },
+  "contracts": {
+    "XyloFactory": "0x60EDeFB094B84BBC6430cc130B358A43Ba1979e2",
+    "XyloRouter": "0x73742278c31a76dBb0D2587d03ef92E6E2141023",
+    "XyloBridge": "0xf7Df65Ce418E938ee8d9a0A0d227A43441fe4641",
+    "XyloVault": "0x240Eb85458CD41361bd8C3773253a1D78054f747"
+  },
+  "pools": {
+    "USDC-EURC": "0x3DF3966F5138143dce7a9cFDdC2c0310ce083BB1",
+    "USDC-USYC": "0x8296cC7477A9CD12cF632042fDDc2aB89151bb61"
+  },
+  "tokens": {
+    "USDC": { "address": "0x3600000000000000000000000000000000000000", "decimals": 6, "eip2612Permit": true },
+    "EURC": { "address": "0x89B50855Aa3bE2F677cD6303Cec089B5F319D72a", "decimals": 6, "eip2612Permit": true },
+    "USYC": { "address": "0xe9185F0c5F296Ed1797AaE4238D26CCaBEadb86C", "decimals": 6, "eip2612Permit": true }
+  },
+  "circleCctpV2": {
+    "TokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+    "MessageTransmitterV2": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275",
+    "attestationApi": "https://iris-api-sandbox.circle.com"
+  },
+  "protocolParams": {
+    "swapFeeBps": 4,
+    "amplificationParameter": 200,
+    "bridgeProtocolFee": 0
+  },
+  "notes": [
+    "All addresses are Arc TESTNET. Mainnet addresses will be published at Arc mainnet launch with identical contract interfaces.",
+    "All XyloNet pools are 2-asset Curve-style StableSwap pools; every multi-hop path currently routes through USDC.",
+    "XyloBridge executes CCTP V2 Standard Transfers (no protocol fee). For Fast Transfer (~30s), integrate Circle TokenMessengerV2 directly."
+  ]
+}
